@@ -20,23 +20,10 @@ from nltk import sent_tokenize
 from nltk import word_tokenize
 from nltk.stem import SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-
-from DataFrame import XmlDataFrame
 from auxiliar.EmoticonsHelper import emo_lexicon
 
-"""
-tree tagger installation instructions: http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/
-"""
-import treetagger.treetaggerwrapper as tw
-
-try:
-    tree = tw.TreeTagger(TAGLANG="es")
-except:
-    tree = None
-    
 # clase para el preprocesamiento del texto
 tagger = None
-dF = XmlDataFrame.DataFrameHelper()
 stemmer = SnowballStemmer('spanish')
 preposiciones = ['a', 'ante', 'bajo', 'cabe', 'con', 'contra', 'de', 'desde', 'durante', 'en', 'entre', 'hacia', 'hasta',
                  'mediante', 'para', 'por', 'según', 'sin', 'so', 'sobre', 'tras', 'versus', 'via']
@@ -116,11 +103,8 @@ def __filtrar_text(text):
     return new_text
 
 
-def procesar_corpus(text=None, tagger=None, process_text=True, stop_words=True, negation=False, repeated_letters=True):
+def procesar_corpus(text=None, process_text=True, stop_words=True, negation=False, repeated_letters=True):
     v = 0
-    if tagger is not None:
-        tags = tw.make_tags(tree.tag_text(text))
-        text = __process_tags(tags, v)
     text = text.lower()
     # text = ''.join([negation_parse(c) for c in sent_tokenize(text)])
     if process_text:
@@ -179,8 +163,6 @@ def tokenize(text, est=False):
     try:
         if est:
             stems = __stem_tokens(tokens)
-            # tags = tw.make_tags(tree.tag_text(text))
-            # stems = [c.lemma for c in tags]
         else:
             stems = tokens
     except Exception as e:

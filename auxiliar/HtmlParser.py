@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import math
-from auxiliar.PrintProgress import print_progress
+from tqdm import tqdm
 
 PARSER = "lxml"
 MAX = 10000
@@ -77,38 +77,37 @@ class HtmlParser():
         data = []
         lista = b_soup.find('div', {'id': 'g2'})
         elementos = lista.find_all('li')
-        long = len(elementos)
-        print("Número de elementos: %i" % long) if self.v >= 2 else None
-        for i, el in enumerate(elementos):
-            print_progress(i+1, long, prefix='Progreso:', suffix='Completado', barLength=50) if self.v >= 1 \
-                else None
-            link = el.find('a', {'class': 'mediana2'})
-            val = el.find('a', {'class': None})
-            nota = val['href'][val['href'].index('=') + 1:]
-            try:
-                if MAX > 0:
-                    if int(nota) > 3:
-                        if self.p > MAX:
-                            continue
-                    elif int(nota) < 3:
-                        if self.n > MAX:
-                            continue
-                    else:
-                        if self.ne > MAX:
-                            continue
+        el_len = len(elementos)
+        with tqdm(total=el_len) as pbar:
+            for i, el in enumerate(elementos):
+                pbar.update(1)
+                link = el.find('a', {'class': 'mediana2'})
+                val = el.find('a', {'class': None})
+                nota = val['href'][val['href'].index('=') + 1:]
+                try:
+                    if MAX > 0:
+                        if int(nota) > 3:
+                            if self.p > MAX:
+                                continue
+                        elif int(nota) < 3:
+                            if self.n > MAX:
+                                continue
+                        else:
+                            if self.ne > MAX:
+                                continue
 
-                # Accedemos a la critica para guardar el texto
-                text_soup = self.url_opener(link['href'], PARSER)
-                texto = text_soup.find('span', {'class': 'mediana'}).text.replace('\\n', '')
-                data.append({'texto': texto, 'nota': nota})
-                if int(nota) > 3:
-                    self.p += 1
-                elif int(nota) < 3:
-                    self.n += 1
-                else:
-                    self.ne += 1
-            except Exception as e:
-                print(e)
+                    # Accedemos a la critica para guardar el texto
+                    text_soup = self.url_opener(link['href'], PARSER)
+                    texto = text_soup.find('span', {'class': 'mediana'}).text.replace('\\n', '')
+                    data.append({'texto': texto, 'nota': nota})
+                    if int(nota) > 3:
+                        self.p += 1
+                    elif int(nota) < 3:
+                        self.n += 1
+                    else:
+                        self.ne += 1
+                except Exception as e:
+                    print(e)
         return data
 
     @staticmethod

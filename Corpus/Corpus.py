@@ -6,11 +6,9 @@ Auxiliar para la función de composición del corpus de datos
 # Autor Adrián Insua Yañez
 import pandas as pd
 import os
+from Corpus import XmlDataFrame
 
 from lxml import objectify
-
-from DataFrame import XmlDataFrame
-from DataFrame import CommentsDataFrame
 
 # Display progress logs on stdout
 pd.options.mode.chained_assignment = None
@@ -55,18 +53,6 @@ def get_corpus(inp, output, v, comments=None, not_clasif=None):
         data_corpus.polarity[data_corpus.polarity.isin(['P'])] = 4
         data_corpus.polarity[data_corpus.polarity.isin(['P+'])] = 5
         data_corpus.to_csv(filename, index=False, encoding='utf-8')
-
-    #añadimos los comentarios de la web
-    if comments is not None:
-        comments_dataframe = CommentsDataFrame.CommentsDataFrame(comments, v)
-        comment_corpus = comments_dataframe.get_df()
-        data_corpus = data_corpus.append(comment_corpus, ignore_index=True)
-
-    if not_clasif is not None:
-        comments_dataframe = CommentsDataFrame.CommentsDataFrame(not_clasif, v)
-        comment_corpus = comments_dataframe.get_df()
-        data_corpus = data_corpus.append(comment_corpus, ignore_index=True)
-
 
     # Impresiones verbose
     print("#Datos recuperados!") if v >= 1 else None
