@@ -1,6 +1,10 @@
 # SentimentAnalysis
 Spanish NLP Sentiment Analysis investigation and implementation
 
+## Instructions
+
+Follow our [wiki](https://github.com/AdrianInsua/SentimentAnalysis/wiki) easy steps to get project ready to go.
+
 ## Investigation
 We use Tensorflow as NN backend, and keras as framework in order to get an easier implementation
 
