@@ -12,9 +12,6 @@ vect_params = {
     'vect__min_df': [10],
     'vect__max_features': [500],
     'vect__ngram_range': [(1, 1)],
-    'vect__pre_level': [3],
-    'vect__n_t': [0, 1],
-    'vect__est': [True]
     }
 
 # Aqui definimos el espacio de parámetros a explorar
