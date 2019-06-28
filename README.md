@@ -41,3 +41,7 @@ This opens a bash in docker with redirection to project dir and 8888 ports open 
 Instal required libraries and then execute: 
 
 `jupyter-notebook --allow-root --port=8888 --ip=0.0.0.0`
+
+## Results
+
+You can visualize achieved results accessing to [results](https://github.com/AdrianInsua/SentimentAnalysis/tree/develop/results)
