@@ -14,11 +14,14 @@ El nivel de actuación de la clase se decide según el valor de la variable de p
 # Autor Adrián Insua Yañez
 import csv
 import re
+import pandas as pd
+import numpy as np
 from string import punctuation
 
 from nltk import sent_tokenize
 from nltk import word_tokenize
 from nltk.stem import SnowballStemmer
+from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from auxiliar.EmoticonsHelper import emo_lexicon
 
@@ -83,70 +86,163 @@ non_words = list(punct)
 non_words.extend(['mencion', 'url', 'hashtag'])
 emoticons = emo_lexicon()
 
+class Preprocessor(BaseEstimator, TransformerMixin):
+    def __init__(self, process=True, stop_words=True, negation=0, repeated_letters=True, v=0):
+        self.process = process
+        self.stop_words = stop_words
+        self.negation = negation
+        self.repeated_letters = repeated_letters
+        self.v = v
 
-def __stem_tokens(tokens):
-    stemmed = []
-    for item in tokens:
-        stemmed.append(stemmer.stem(item))
-    return stemmed
+    def set_params(self, process=True, stop_words=True, negation=0, repeated_letters=True, v=0, **args):
+        self.process = process
+        self.stop_words = stop_words
+        self.negation = negation
+        self.repeated_letters = repeated_letters
+        self.v = v
+        self.text = None
 
-def __filtrar_text(text):
-    new_text = ''
-    for c in text.split():
-        non_w_check = [c.__contains__(x) for x in non_words]
-        if any(non_w_check):
-            for i in range(len(non_w_check)):
-                if non_w_check[i]:
-                    c = c.replace(non_words[i], '')
-        if len(c) > 0:
-            new_text += c + ' '
-    return new_text
+    def fit(self, raw_documents, y=None):
+        return self
+
+    def transform(self, raw_documents):
+        v = self.v
+        documents = []
+        for text in raw_documents:
+            text = text.lower()
+            # text = ''.join([negation_parse(c) for c in sent_tokenize(text)])
+            if self.process:
+                print("Realizando preprocesado nivel 1...") if v >= 1 else None
+                text = self.__process_tweet(text)
+            text = self.__add_spaces(text)
+            if self.stop_words:
+                text = ''.join([c + ' ' for c in text.split() if c not in spanish_stopwords])
+                text = ''.join([c + ' ' for c in text.split() if c not in non_words])
+            if self.negation:
+                print("Tratando la negación...") if v >= 1 else None
+                text = self.__negacion(text.split(), self.negation, v)
+            if self.repeated_letters:
+                print("Eliminando letras repetidas....") if v >= 1 else None
+                text = self.__replace_two_or_more(text)
+            documents.append(text)
+        return np.array(documents)
+
+    def fit_transform(self, raw_documents, y=None):
+        return self.transform(raw_documents)
+
+    def __filtrar_text(self, text):
+        new_text = ''
+        for c in text.split():
+            non_w_check = [c.__contains__(x) for x in non_words]
+            if any(non_w_check):
+                for i in range(len(non_w_check)):
+                    if non_w_check[i]:
+                        c = c.replace(non_words[i], '')
+            if len(c) > 0:
+                new_text += c + ' '
+        return new_text
 
 
-def procesar_corpus(text=None, process_text=True, stop_words=True, negation=False, repeated_letters=True):
-    v = 0
-    text = text.lower()
-    # text = ''.join([negation_parse(c) for c in sent_tokenize(text)])
-    if process_text:
-        print("Realizando preprocesado nivel 1...") if v >= 1 else None
-        text = __process_tweet(text)
-    text = __add_spaces(text)
-    if stop_words:
-        text = ''.join([c + ' ' for c in text.split() if c not in spanish_stopwords])
-        text = ''.join([c + ' ' for c in text.split() if c not in non_words])
-    if negation:
-        print("Tratando la negación...") if v >= 1 else None
-        text = __negacion(text.split(), n_t, v)
-    if repeated_letters:
-        print("Eliminando letras repetidas....") if v >= 1 else None
-        text = __replace_two_or_more(text)
-    return text
+    # start process_tweet
+    def __process_tweet(self, tweet):
+        # process the tweets
+        # Convert www.* or https?://* to URL
+        tweet = re.sub('([\W]xq[\W])|^xq[\W]', ' porque ', tweet)
+        tweet = re.sub('([\W]x[\W])|^x[\W]', ' por ', tweet)
+        tweet = re.sub('([\W]xara[\W])|^xara[\W]', ' para ', tweet)
+        tweet = re.sub('([\W]xa[\W])|^xa[\W]', ' para ', tweet)
+        tweet = re.sub('([\W](tk|tq)[\W])|^(tk|tq)[\W]', ' te quiero ', tweet)
+        tweet = re.sub('([\W]lol[\W])|^lol[\W]', ' carcajada ', tweet)
+        tweet = re.sub('([\W]lmao[\W])|^lmao[\W]', ' risa ', tweet)
+        tweet = re.sub('([\W](k|q)[\W])|^(k|q)[\W]', ' que ', tweet)
+        tweet = re.sub('([\W]d[\W])|^d[\W]', ' de ', tweet)
+        tweet = re.sub('([\W]n[\W])|^n[\W]', ' en ', tweet)
+        tweet = re.sub('([\W]dl[\W])|^dl[\W]', ' del ', tweet)
+        tweet = re.sub('([\W]bss[\W])|^bss[\W]', ' besos ', tweet)
+        tweet = re.sub('([\W]mx[\W])|^mx[\W]', ' mucho ', tweet)
+        tweet = re.sub('([\W](tkm|tqm)[\W])|^(tkm|tqm)[\W]', ' te quiero mucho ', tweet)
+        tweet = re.sub('([\W](xd|XD|xD)[\W])|^(xd|XD|xD)[\W]', ' risa ', tweet)
+        tweet = re.sub('([\W]pls[\W])|^pls[\W]', ' por favor ', tweet)
+        tweet = re.sub('([\W]thx[\W])|^thx[\W]', ' gracias ', tweet)
+        tweet = re.sub('([\W](bdías|bdias)[\W])|^(bdías|bdias)[\W]', ' buenos días ', tweet)
+        tweet = re.sub('([0-9]+)', '', tweet)
+        tweet = re.sub('(\xc2\xa0*)', '', tweet)
+        tweet = tweet.replace(u'\xa0', u' ')
+        tweet = re.sub('(\\\)', '', tweet)
 
-def negation_parse(sent):
-    with open('data/neg_expresions.csv', 'r', encoding='utf-8') as f:
-        reader = csv.reader(f)
-        neg_list = list(reader)
-    for c in neg_list[0]:
-        if c in sent:
-            print(sent)
-            break
-    return sent
+        tweet = re.sub('((www\.[^\s]+)|(https?:[^\s]+))', 'url', tweet)
+        # control emoticonos
+        text = ''.join(
+            [emoticons[c] if c in emoticons else c + ' ' for c in tweet.split()]
+        )
+        tweet = text
+        # Convert @username to AT_USER
+        tweet = re.sub('@[^\s]+', ' mencion ', tweet)
+        # Remove additional white spaces
+        tweet = re.sub('[\s]+', ' ', tweet)
+        # Replace #word with word
+        tweet = re.sub('#([^\s]+)', ' hashtag ', tweet)
+        # trim
+        tweet = tweet.strip('\'"')
+        return tweet
+        # end
 
 
-def distance_levenshtein(str1, str2):
+    # start replaceTwoOrMore
+    def __replace_two_or_more(self, s):
+        # look for 2 or more repetitions of character and replace with the character itself
+        pattern = re.compile(r"(.)\1+", re.DOTALL)
+        s = pattern.sub(r"\1\1", s)
+        return pattern.sub(r"\1\1", s)
+        # end
+
+
+    #start add space inpunctuation
+    def __add_spaces(self, s):
+        pattern = re.compile(r"([" + punct + "])", re.DOTALL)
+        return pattern.sub(r" \1 ", s)
+
+    def __negacion(self, text, th, v):
+        new_text = ""
+        old_th = th
+        for i in range(len(text)):
+            if th != old_th:
+                th -= 1
+            if th == -1:
+                new_text += "negado" + text[i] + " "
+                th = old_th
+            elif text[i] == 'no':
+                th -= 1  # Se empieza a descontar hasta llegar al valor 0 de treshold
+                new_text += text[i] + " "
+            else:
+                new_text += text[i] + " "
+        print("nuevo texto ", new_text) if v >= 3 else None
+        return new_text
+
+
+    def __process_tags(self, text, v):
+        new_text = ""
+        for i in range(len(text)):
+            if isinstance(text[i], tw.NotTag) is False:
+                if text[i][1] != 'NP':
+                    # Eliminamos los nombres propios
+                    new_text += text[i][0] + " "
+        return new_text
+
+def distance_levenshtein(self, str1, str2):
     d=dict()
     for i in range(len(str1)+1):
-     d[i]=dict()
-     d[i][0]=i
+        d[i]=dict()
+        d[i][0]=i
     for i in range(len(str2)+1):
-     d[0][i] = i
+        d[0][i] = i
     for i in range(1, len(str1)+1):
-     for j in range(1, len(str2)+1):
-        d[i][j] = min(d[i][j-1]+1, d[i-1][j]+1, d[i-1][j-1]+(not str1[i-1] == str2[j-1]))
+        for j in range(1, len(str2)+1):
+            d[i][j] = min(d[i][j-1]+1, d[i-1][j]+1, d[i-1][j-1]+(not str1[i-1] == str2[j-1]))
     return d[len(str1)][len(str2)]
 
 
-def tokenize(text, est=False):
+def stemize(text):
     """
 
     :param text: texto a tokenizar
@@ -157,118 +253,49 @@ def tokenize(text, est=False):
     devuelva el resultado final al metodo de sklearn utilizado
 
     """
-
     tokens = word_tokenize(text)
     # stem
     try:
-        if est:
-            stems = __stem_tokens(tokens)
-        else:
-            stems = tokens
+        stems = __stem_tokens(tokens)
     except Exception as e:
         print(e)
         print(text)
         stems = ['']
     return stems
 
+def tokenize(text):
+    """
 
-# start process_tweet
-def __process_tweet(tweet):
-    # process the tweets
-    # Convert www.* or https?://* to URL
-    tweet = re.sub('([\W]xq[\W])|^xq[\W]', ' porque ', tweet)
-    tweet = re.sub('([\W]x[\W])|^x[\W]', ' por ', tweet)
-    tweet = re.sub('([\W]xara[\W])|^xara[\W]', ' para ', tweet)
-    tweet = re.sub('([\W]xa[\W])|^xa[\W]', ' para ', tweet)
-    tweet = re.sub('([\W](tk|tq)[\W])|^(tk|tq)[\W]', ' te quiero ', tweet)
-    tweet = re.sub('([\W]lol[\W])|^lol[\W]', ' carcajada ', tweet)
-    tweet = re.sub('([\W]lmao[\W])|^lmao[\W]', ' risa ', tweet)
-    tweet = re.sub('([\W](k|q)[\W])|^(k|q)[\W]', ' que ', tweet)
-    tweet = re.sub('([\W]d[\W])|^d[\W]', ' de ', tweet)
-    tweet = re.sub('([\W]n[\W])|^n[\W]', ' en ', tweet)
-    tweet = re.sub('([\W]dl[\W])|^dl[\W]', ' del ', tweet)
-    tweet = re.sub('([\W]bss[\W])|^bss[\W]', ' besos ', tweet)
-    tweet = re.sub('([\W]mx[\W])|^mx[\W]', ' mucho ', tweet)
-    tweet = re.sub('([\W](tkm|tqm)[\W])|^(tkm|tqm)[\W]', ' te quiero mucho ', tweet)
-    tweet = re.sub('([\W](xd|XD|xD)[\W])|^(xd|XD|xD)[\W]', ' risa ', tweet)
-    tweet = re.sub('([\W]pls[\W])|^pls[\W]', ' por favor ', tweet)
-    tweet = re.sub('([\W]thx[\W])|^thx[\W]', ' gracias ', tweet)
-    tweet = re.sub('([\W](bdías|bdias)[\W])|^(bdías|bdias)[\W]', ' buenos días ', tweet)
-    tweet = re.sub('([0-9]+)', '', tweet)
-    tweet = re.sub('(\xc2\xa0*)', '', tweet)
-    tweet = tweet.replace(u'\xa0', u' ')
-    tweet = re.sub('(\\\)', '', tweet)
+    :param text: texto a tokenizar
+    :param est: Flag para usar el stemming
+    :return:
 
-    tweet = re.sub('((www\.[^\s]+)|(https?:[^\s]+))', 'url', tweet)
-    # control emoticonos
-    text = ''.join(
-        [emoticons[c] if c in emoticons else c + ' ' for c in tweet.split()]
-    )
-    tweet = text
-    # Convert @username to AT_USER
-    tweet = re.sub('@[^\s]+', ' mencion ', tweet)
-    # Remove additional white spaces
-    tweet = re.sub('[\s]+', ' ', tweet)
-    # Replace #word with word
-    tweet = re.sub('#([^\s]+)', ' hashtag ', tweet)
-    # trim
-    tweet = tweet.strip('\'"')
-    return tweet
-    # end
+    Además de la tokenización se centraliza en esta función todo el pre-procesado para que
+    devuelva el resultado final al metodo de sklearn utilizado
+
+    """
+    tokens = word_tokenize(text)
+    # stem
+    return tokens
 
 
-# start replaceTwoOrMore
-def __replace_two_or_more(s):
-    # look for 2 or more repetitions of character and replace with the character itself
-    pattern = re.compile(r"(.)\1+", re.DOTALL)
-    s = pattern.sub(r"\1\1", s)
-    return pattern.sub(r"\1\1", s)
-    # end
+def __stem_tokens(tokens):
+    stemmed = []
+    for item in tokens:
+        stemmed.append(stemmer.stem(item))
+    return stemmed
 
 
-#start add space inpunctuation
-def __add_spaces(s):
-    pattern = re.compile(r"([" + punct + "])", re.DOTALL)
-    return pattern.sub(r" \1 ", s)
-
-def __negacion(text, th, v):
-    new_text = ""
-    old_th = th
-    for i in range(len(text)):
-        if th != old_th:
-            th -= 1
-        if th == -1:
-            new_text += "negado" + text[i] + " "
-            th = old_th
-        elif text[i] == 'no':
-            th -= 1  # Se empieza a descontar hasta llegar al valor 0 de treshold
-            new_text += text[i] + " "
-        else:
-            new_text += text[i] + " "
-    print("nuevo texto ", new_text) if v >= 3 else None
-    return new_text
-
-
-def __process_tags(text, v):
-    new_text = ""
-    for i in range(len(text)):
-        if isinstance(text[i], tw.NotTag) is False:
-            if text[i][1] != 'NP':
-                # Eliminamos los nombres propios
-                new_text += text[i][0] + " "
-    return new_text
-
+preprocessor = Preprocessor(v=0)
 
 vectorizerIdf = TfidfVectorizer(
-    analyzer='word',
-    stop_words=spanish_stopwords,
-    tokenizer=tokenize,
-    preprocessor=procesar_corpus)
+    analyzer='word', lowercase=False,
+    stop_words=spanish_stopwords
+)
 
 vectorizer = CountVectorizer(
-    analyzer='word',
-    stop_words=spanish_stopwords,
-    tokenizer=tokenize,
-    preprocessor=procesar_corpus)
+    analyzer='word', lowercase=False,
+    stop_words=spanish_stopwords
+)
 
 

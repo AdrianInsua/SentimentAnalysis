@@ -127,9 +127,9 @@ class HtmlParser():
 
     @staticmethod
     def save_data(corpus):
-        corpus.to_csv('data/pelis.csv', index=False, encoding='utf-8')
+        corpus.to_csv('../data/pelis.csv', index=False, encoding='utf-8')
 
     @staticmethod
     def load_data():
-        return pd.read_csv('data/pelis.csv', encoding='utf-8')
+        return pd.read_csv('../data/pelis.csv', encoding='utf-8')
 
