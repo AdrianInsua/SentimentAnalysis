@@ -1,0 +1,124 @@
+\chapter{Fundamentos Tecnológicos}
+\lettrine{E}{n} este capítulo trataremos las distintas tecnologías utilizadas en el desarrollo de este proyecto.
+
+\section{Análisis de sentimientos}
+
+Para la preparación y estudio de los datos, así como para el desarrollo de los modelos de aprendizaje se ha elegido la versión 3.5 de Python, por su facilidad de aprendizaje y su amplia comunidad en el ámbito del aprendizaje automático.
+
+Se trata de un lenguaje de programación multiparadigma creado por Guido van Rossum\footnote{https://docs.python.org/3/faq/general.html\#why-was-python-created-in-the-first-place} y administrado por la Python Software Foundation. 
+
+Para el proyecto se han utilizado las siguientes librerías:
+
+
+\begin{itemize}
+	\item NLTK: Biblioteca para trabajar en dominios de lenguaje natural.
+	\item SciKitLearn: Ofrece herramientas eficientes para el análisis y la minería de datos así como algoritmos de Machine Learning.
+	\item TensorFlow: Biblioteca de código abierto para la implementación de modelos de Aprendizaje Profundo. Permite el uso tanto de CPU como de GPU durante los procesos. Se ha elegido esta frente a otras como Theano o Torch por ser una biblioteca de Google que sigue mantenida en la actualidad, permite su uso en contenedores Docker de forma que la instalación para el uso de GPU se simplifica y no afecta al sistema principal de la máquina. Además disfruta de una amplia comunidad de desarrolladores lo cual facilitará la resolución de dudas durante el proceso. 
+	\item Keras: Biblioteca de alto nivel que permite agilizar la implementación de modelos de Aprendizaje Profundo. Está incluida de forma nativa en las últimas versiones de Tensorflow pero también se puede utilizar de forma individual con otros backends como Theano.
+\end{itemize}
+
+
+\section{Aplicación Web}
+
+\subsection{Tecnología Back-end}
+A continuación describiremos la tecnología utilizada del lado del servidor.
+
+\subsubsection{Java}
+
+El lenguaje de programación Java fue creado en 1991 por Sun Microsystems (adquirida posteriormente por Oracle) y publicado en 1995 como parte fundamental de la plataforma Java, que ofrece un lenguaje de programación de propósito general, concurrente y orientado a objetos.
+
+La tecnología Java ofrece una máquina virtual (JVM) que permite ejecutar la compilación de los bytecodes (clases de Java) en cualquier maquina, sin importar la arquitectura subyacente.
+
+Para la ejecución como usuario final de aplicaciones Java es necesario disponer el Java Runtime Environment (JRE), mientras que para el uso como desarrollador es necesario el uso del kit JDK (java Development Kit) que incluye el JRE.
+
+Sun define tres plataformas según el entorno de aplicación:
+\begin{itemize}
+	\item Java ME: orientado a entornos de recursos limitados, como teléfonos móviles, PDAs, etc.
+	\item Java SE: para entornos de gama media y estaciones de trabajo.
+	\item Java EE: orientada a entornos distribuidos empresariales o de internet.
+\end{itemize}
+
+En el proyecto se utiliza la versión 8 del JDK con la plataforma Java EE.
+
+\subsubsection{Spring}
+
+Uno de los problemas a los que nos enfrentamos al enfrentarnos a un desarrollo software es el uso de varios frameworks (conjunto de clases que pretenden facilitarnos el trabajo), y cada uno de estos generará su propio conjunto de objetos. Esta situación puede generarnos problemas ya que los frameworks son independientes entre sí y gestionan ciclos de vida propios para los objetos.
+
+En este sentido Spring nos ayuda cambiando las responsabilidades y encargándose él en lugar del desarrollador de generar los objetos de cada uno de los frameworks basándose en ficheros xml o anotaciones, y de integrarlos de forma correcta.
+
+\subsubsection{Jackson}
+
+Se trata de una biblioteca java simple pero potente pensada para serializar objetos Java a JSON y viceversa.
+
+\subsection{Tecnología de datos}
+
+A continuación se describen las tecnologías de gestión de datos utilizados por el sistema.
+
+\subsubsection{PostgreSQL}
+PostgreSQL es un sistema de gestión de base de datos relacional orientado a objetos y libre, publicado bajo la licencia PostgreSQL similar a la BSD o la MIT.
+
+\subsubsection{Hibernate}
+
+Hibernate es una herramienta de mapeado objeto-relacional (ORM) para uso sobre la plataforma Java o .Net bajo el nombre NHibernate.
+
+Esta herramienta utiliza archivos XML o anotaciones en los beans de las entidades para facilitar el mapeado de atributos entre una base de datos relacional y el modelo de objetos de una aplicación.
+
+\subsection{Front-end: Interfaz Single Page Application}
+
+Una Single Page Application (SPA) es una aplicación o interfaz web de página única con el propósito de ofrecer una experiencia más fluida al usuario. Los códigos utilizados por la aplicación pueden cargarse todos de una sola vez o irse cargando de forma dinámica dependiendo de las necesidades de la aplicación.
+
+Las herramientas modernas como AngularJS (que se explicará a continuación) permiten al desarrollador crear una SPA sin necesidad de enfrentarse al código JavaScript ni a los problemas de la tecnología. 
+
+\subsubsection{HTML5}
+
+HTML5 es la quinta revisión importante del lenguaje HTML y especifica dos variantes de sintaxis para HTML: una «clásica», HTML (text/html), conocida como HTML5, y una variante XHTML conocida como sintaxis XHTML5 que deberá servirse con sintaxis XML (application/xhtml+xml).
+
+La versión definitiva de la quinta revisión del estándar se publicó en octubre de 2014.
+
+\subsubsection{JavaScript}
+
+Es un lenguaje de programación interpretado utilizado sobre todo del lado del cliente. Se define como orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.
+
+\subsubsection{CSS3}
+
+CSS3 es la ultima versión disponible de CSS (Cacading Stylesheets u Hojas de estilo en cascada en Español). Cuando hablamos de CSS hablamos de un lenguaje de diseño gráfico que nos ayuda a suplir las carencias de HTML a la hora de maquetar el diseño de una página web.
+
+\subsubsection{AngularJS}
+
+AngularJS es un framework de javascript mantenido por Google que realiza una extensión del lenguaje HTML tradicional y nos brinda la posibilidad de diseñar páginas web dinámicas, facilitando la creación de SPA's.
+
+Angular sigue el patrón MVVM (Model View View Model) alentando la articulación flexible entre la presentación, datos y componentes lógicos.
+
+Se ha utilizado esta tecnología por ser la utilizada en el sistema ya existente, aunque sería recomendable hacer una migración a las nuevas versiones del framework.
+
+\subsubsection{AngularMaterial}
+
+Proyecto pensado para los desarrolladores de AngularJS que ofrece una serie de componentes prediseñados de interfaz siguiendo la especificación Google Material Design.
+
+Las directivas y objetos ofrecidos por esta biblioteca están correctamente probados, y pensados para funcionar en diferentes dispositivos y a diferentes tamaños de pantalla (Responsive Web)
+
+\subsubsection{JSPM}
+
+JSPM es un gestor de paquetes asociado a SystemJS que funciona sobre cualquier registro como puede ser npm o GitHub y funciona sobre el sistema de carga de módulos ES6, característica que nos permita el uso de cualquier módulo javascript de forma sencilla, solo se necesita una instrucción para la instalación y una línea de código para la importación al proyecto.
+
+Esta tecnología es la que utiliza el sistema existente, sin embargo si se migra a alguna de las últimas versiones del framework deberemos utilizar el gestor NPM.
+
+\subsection{Tecnologías de despliegue y construcción}
+
+\subsubsection{Servidor HTTP Apache}
+
+Se trata de un servidor web de código abierto multiplataforma, que comenzó su desarrollo en 1995, actualmente es desarrollado y mantenido por una comunidad de usuarios bajo la supervisión de la Apache Software Foundation dentro del proyecto HTTP Server (httpd).
+
+La estructura del servidor es modular, es decir, además de un core o núcleo presenta diversos módulos que aportan mucha funcionalidad que podría considerarse básica para un servidor web.
+
+Además el servidor es fácilmente extensible incluyendo nuevos módulos además de los que trae por defecto.
+
+\subsubsection{Apache Tomcat}
+
+Tomcat es un contenedor web con soporte de servlets y JSPs. Incluye el compilador Jasper, que compila JSPs convirtiéndolas en servlets. El motor de servlets de Tomcat a menudo se presenta en combinación con el servidor web Apache.
+
+\subsubsection{Apache Maven}
+
+Maven es una herramienta de software para la gestión y construcción de proyectos Java creada por Jason van Zyl, de Sonatype, en 2002. 
+
+Maven está construido alrededor de la idea de reutilización, y más específicamente, a la reutilización de la lógica de construcción. Como los proyectos generalmente se construyen en patrones similares, una elección lógica podría ser reutilizar los procesos de construcción.

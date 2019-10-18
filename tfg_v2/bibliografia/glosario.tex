@@ -1,0 +1,57 @@
+\chapter*{\nomeglosariotermos}
+\addcontentsline{toc}{chapter}{\nomeglosariotermos}
+\label{chap:glosario-termos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Obxectivo: Lista de termos empregados no documento,                          %
+%            xunto cos seus respectivos significados.                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{description}
+  
+  \item [Corpus]
+  Un corpus es un conjunto de documentos que se utilizarán como entrada para un sistema de análisis de sentimientos. Dichos documentos poseen una clasificación previa y generalmente realizada por humanos.
+  
+  \item[Lexicón de polaridad]
+  
+  Vocabulario que relaciona una palabra con una polaridad determinada, basada en la teoría de las emociones básicas del ser humano propuesta por Plutchik (\cite{Plutchick62},\cite{Plutchick80},\cite{Plutchick85})
+  
+  Para el trabajo se ha utilizado el diccionario término-emoción creado por Mohammad y Turney \cite{Lexicon} a través del servicio Mechanical Turk de Amazon, sobre el que se han realizado algunas correcciones de errores derivadas de la traducción automática de los términos mediante el servicio de traducción de Google.
+  
+  \item[Feature]
+  
+  Con este término nos referiremos a las características o propiedades de los textos que utilizaremos para predecir su polaridad mediante los distintos modelos de clasificación.
+  
+  \item[N-grama]
+  
+  Según la definición de Wikipedia\footnote{https://es.wikipedia.org/wiki/N-grama}: \textit{un n-grama es una subsecuencia de n elementos de una secuencia dada}. 
+  Para el estudio del lenguaje los n-gramas son composiciones generalmente formadas por fonemas, sílabas, letras o palabras. 
+  Los n-gramas se clasificarán según el valor de n:
+  \begin{itemize}
+  	\item unigrama: n-gramas de 1 solo elemento.
+  	\item bigrama: n-grama de 2 elementos, también llamados digramas.
+  	\item trigrama: n-grama de 3 elementos.
+  \end{itemize}
+  
+  \item[Token]
+  
+  Cadena de caracteres que forman un componente léxico básico del sistema para la realización de la clasificación.
+  
+  Una sentencia está compuesta por una colección de tokens que corresponderán a las palabras que la forman.
+  
+  Frase: \textit{``La clasificación de textos en español"}.
+  
+  Tokens: [la, clasificación, de, textos, en, español]
+  
+  Si nos ceñimos al modelo de n-gramas un token sería considerado un unigrama.
+  
+  \item[Stopwords]
+  
+  Colección de palabras de uso común en un idioma, que dado que no aportan información relevante sobre los textos pueden ser eliminadas en un proceso previo de limpieza.
+  
+  Comúnmente esta colección está formada por preposiciones, pronombres, verbos comunes, signos de puntuación, y otras palabras dependientes del dominio del problema.
+  
+  \item[Preprocesamiento]
+  
+  Proceso de tratamiento previo de los datos que pretende mejorar la calidad de los mismos. Dado que se trata de un dominio no profesional es común encontrar faltas de ortografía cometidas por los usuarios, caracteres especiales del dominio (hashtags o menciones de twitter, emoticonos, etc.) que no aportan información válida para la tarea, y necesitaremos deshacernos de ellos antes de utilizar los textos.
+\end{description}

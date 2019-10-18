@@ -1,0 +1,36 @@
+\select@language {galician}
+\select@language {spanish}
+\select@language {spanish}
+\select@language {english}
+\select@language {spanish}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Estimación de esfuerzo subsistema de análisis de sentimientos.\relax }}{24}{table.caption.8}% 
+\contentsline {table}{\numberline {6.2}{\ignorespaces Estimación de esfuerzo desarrollo aplicación web.\relax }}{25}{table.caption.9}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {12.1}{\ignorespaces Resultados en \% entrenamiento para linea base.\relax }}{63}{table.caption.34}% 
+\contentsline {table}{\numberline {12.2}{\ignorespaces Resultados en \% entrenamiento para linea base de 3 clases.\relax }}{64}{table.caption.35}% 
+\contentsline {table}{\numberline {12.3}{\ignorespaces Resultados en \% entrenamiento para linea base de 5 clases.\relax }}{64}{table.caption.36}% 
+\contentsline {table}{\numberline {12.4}{\ignorespaces Medias en \% entrenamiento para gridsearch con 2 clases.\relax }}{65}{table.caption.37}% 
+\contentsline {table}{\numberline {12.5}{\ignorespaces Medias en \% entrenamiento para gridsearch con 3 clases.\relax }}{66}{table.caption.38}% 
+\contentsline {table}{\numberline {12.6}{\ignorespaces Medias en \% entrenamiento para gridsearch con 5 clases.\relax }}{66}{table.caption.39}% 
+\contentsline {table}{\numberline {12.7}{\ignorespaces Resultados sobre el conjunto de test.\relax }}{71}{table.caption.46}% 
+\contentsline {table}{\numberline {12.8}{\ignorespaces Resultados sobre el conjunto de test.\relax }}{72}{table.caption.47}% 
+\contentsline {table}{\numberline {12.9}{\ignorespaces Resultados sobre el conjunto de test.\relax }}{74}{table.caption.51}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Resultados en \% del mejor modelo obtenido en los k-folds\relax }}{82}{table.caption.60}% 
+\contentsline {table}{\numberline {A.2}{\ignorespaces Resultados de la clasificación en el dominio de críticas de cine.\relax }}{83}{table.caption.61}% 
+\contentsline {table}{\numberline {A.3}{\ignorespaces Resultados en \% del mejor modelo obtenido en los k-folds\relax }}{83}{table.caption.62}% 
+\contentsline {table}{\numberline {A.4}{\ignorespaces Resultados de la clasificación en el dominio de críticas de cine.\relax }}{83}{table.caption.63}% 
+\contentsline {table}{\numberline {A.5}{\ignorespaces Resultados en \% del mejor modelo obtenido en los k-folds\relax }}{83}{table.caption.64}% 
+\contentsline {table}{\numberline {A.6}{\ignorespaces Resultados de la clasificación en el dominio de críticas de cine.\relax }}{84}{table.caption.65}% 

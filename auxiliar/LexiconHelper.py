@@ -22,9 +22,8 @@ import re
 import pandas as pd
 import unicodedata
 from nltk.stem import SnowballStemmer
-import treetagger.treetaggerwrapper as tw
 
-tree = tw.TreeTagger(TAGLANG="es")
+
 stemmer = SnowballStemmer('spanish')
 
 
@@ -44,13 +43,12 @@ class LexiconHelper:
             f1 = open('data/lexicon_parsed.pickle', 'rb')
             lexicon = pickle.load(f1)
             """print(lexicon)
-            lexicon = pd.read_csv('data/lexicon_parsed.csv', encoding='utf-8')"""
+            lexicon = pd.read_csv('./../data/lexicon_parsed.csv', encoding='utf-8')"""
             return lexicon
         except Exception as e:
-            lexicon = pd.read_csv('data/lexicon.csv', encoding='utf-8')
+            lexicon = pd.read_csv('./../data/lexicon.csv', encoding='utf-8')
             lexicon = self.__check_ambiguity(self.__filter_lexicon_binary(lexicon))
-            # lexicon = self.__stem_lexicon(lexicon)
-            lexicon = self.__lemmatize_lexicon(lexicon)
+            lexicon = self.__stem_lexicon(lexicon)
             self.save_lexicon(lexicon)
             """lexicon = self.__parse_accents(lexicon)
             self.save_lex_df(lexicon)"""
@@ -78,33 +76,6 @@ class LexiconHelper:
                 new_lex.update({w.Word: (w.Positive - w.Negative)})
         return new_lex
 
-    @staticmethod
-    def __lemmatize_lexicon(lexicon):
-        new_lex = {}
-        for k in lexicon:
-            if len(k.split()) < 2:
-                tag = tw.make_tags(tree.tag_text(k))
-                if tag[0].lemma != tag[0].word:
-                    w = tag[0].lemma
-                else:
-                    w = re.sub("(se)|(me)|(te)|(le)|(nos)|(os)$", '', tag[0].word)
-                if w in new_lex.keys():
-                    old_value = new_lex[w]
-                    new_value = old_value + lexicon[k]
-                    if new_value >= 1:
-                        new_value = 1
-                    elif new_value <= -1:
-                        new_value = -1
-                    new_lex.update({k: new_value})
-                    if new_lex[w] > 1:
-                        new_lex.update({w: 1})
-                    elif new_lex[w] < -1:
-                        new_lex.update({w: -1})
-                else:
-                    new_lex.update({k: lexicon[k]})
-            else:
-                new_lex.update({k: lexicon[k]})
-        return new_lex
 
     @staticmethod
     def __stem_lexicon(lexicon):
@@ -124,12 +95,12 @@ class LexiconHelper:
 
     @staticmethod
     def save_lexicon(lexicon):
-        f = open('data/lexicon_parsed.pickle', 'wb')
+        f = open('./../data/lexicon_parsed.pickle', 'wb')
         pickle.dump(lexicon, f)
         f.close()
 
     def save_lex_df(self, lexicon):
-        lexicon.to_csv('data/lexicon_parsed.csv', index=False, encoding='utf-8')
+        lexicon.to_csv('./../data/lexicon_parsed.csv', index=False, encoding='utf-8')
 
     @staticmethod
     def create_row(i, titles, data):

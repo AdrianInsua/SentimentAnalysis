@@ -1,0 +1,93 @@
+\BOOKMARK [0][-]{chapter.1}{Introdución}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Motivación}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Objetivos}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Análisis de sentimientos}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Servicio\040web}{section.1.2}% 5
+\BOOKMARK [0][-]{chapter.2}{Estructura\040de\040la\040memoria}{}% 6
+\BOOKMARK [0][-]{chapter.3}{Estado\040del\040arte}{}% 7
+\BOOKMARK [1][-]{section.3.1}{Clasificación}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.2}{Conclusión}{chapter.3}% 9
+\BOOKMARK [0][-]{chapter.4}{Fundamentos Tecnológicos}{}% 10
+\BOOKMARK [1][-]{section.4.1}{Análisis de sentimientos}{chapter.4}% 11
+\BOOKMARK [1][-]{section.4.2}{Aplicación Web}{chapter.4}% 12
+\BOOKMARK [2][-]{subsection.4.2.1}{Tecnología Back-end}{section.4.2}% 13
+\BOOKMARK [2][-]{subsection.4.2.2}{Tecnología de datos}{section.4.2}% 14
+\BOOKMARK [2][-]{subsection.4.2.3}{Front-end:\040Interfaz\040Single\040Page\040Application}{section.4.2}% 15
+\BOOKMARK [2][-]{subsection.4.2.4}{Tecnologías de despliegue y construcción}{section.4.2}% 16
+\BOOKMARK [0][-]{chapter.5}{Metodología de desarrollo}{}% 17
+\BOOKMARK [1][-]{section.5.1}{Proceso\040de\040desarrollo\040unificado}{chapter.5}% 18
+\BOOKMARK [2][-]{subsection.5.1.1}{Características}{section.5.1}% 19
+\BOOKMARK [2][-]{subsection.5.1.2}{Fases}{section.5.1}% 20
+\BOOKMARK [0][-]{chapter.6}{Planificación}{}% 21
+\BOOKMARK [1][-]{section.6.1}{Análisis de sentimientos}{chapter.6}% 22
+\BOOKMARK [2][-]{subsection.6.1.1}{Fase\0401:\040Inicio}{section.6.1}% 23
+\BOOKMARK [2][-]{subsection.6.1.2}{Fase 2: Elaboración}{section.6.1}% 24
+\BOOKMARK [2][-]{subsection.6.1.3}{Fase 3: Construcción}{section.6.1}% 25
+\BOOKMARK [2][-]{subsection.6.1.4}{Fase 4: Fase de transición}{section.6.1}% 26
+\BOOKMARK [1][-]{section.6.2}{Servicio\040web}{chapter.6}% 27
+\BOOKMARK [2][-]{subsection.6.2.1}{Fase\0401:\040Fase\040de\040inicio}{section.6.2}% 28
+\BOOKMARK [2][-]{subsection.6.2.2}{Fase 2: Fase de elaboración}{section.6.2}% 29
+\BOOKMARK [2][-]{subsection.6.2.3}{Fase 3: Fase de construcción}{section.6.2}% 30
+\BOOKMARK [2][-]{subsection.6.2.4}{Fase de transición}{section.6.2}% 31
+\BOOKMARK [1][-]{section.6.3}{Diagrama\040de\040Gantt}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.4}{Estimación de recursos}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.5}{Estimación de costes}{chapter.6}% 34
+\BOOKMARK [0][-]{chapter.7}{Casos\040de\040uso}{}% 35
+\BOOKMARK [1][-]{section.7.1}{Inicio de sesión}{chapter.7}% 36
+\BOOKMARK [1][-]{section.7.2}{Visualizar\040comentarios}{chapter.7}% 37
+\BOOKMARK [1][-]{section.7.3}{Añadir comentarios}{chapter.7}% 38
+\BOOKMARK [1][-]{section.7.4}{Editar\040comentarios}{chapter.7}% 39
+\BOOKMARK [1][-]{section.7.5}{Eliminar\040comentarios}{chapter.7}% 40
+\BOOKMARK [1][-]{section.7.6}{Clasificar\040comentarios}{chapter.7}% 41
+\BOOKMARK [0][-]{chapter.8}{Análisis}{}% 42
+\BOOKMARK [1][-]{section.8.1}{Arquitectura\040general}{chapter.8}% 43
+\BOOKMARK [1][-]{section.8.2}{Arquitectura sistema de análisis de sentimientos}{chapter.8}% 44
+\BOOKMARK [1][-]{section.8.3}{Arquitectura\040Web}{chapter.8}% 45
+\BOOKMARK [1][-]{section.8.4}{Trabajo\040futuro}{chapter.8}% 46
+\BOOKMARK [0][-]{chapter.9}{Base\040de\040datos}{}% 47
+\BOOKMARK [1][-]{section.9.1}{Diseño lógico: Modelo Entidad-Relación}{chapter.9}% 48
+\BOOKMARK [1][-]{section.9.2}{Diseño físico: Modelo relacional}{chapter.9}% 49
+\BOOKMARK [0][-]{chapter.10}{Diseño}{}% 50
+\BOOKMARK [1][-]{section.10.1}{Análisis de sentimientos}{chapter.10}% 51
+\BOOKMARK [2][-]{subsection.10.1.1}{Diagrama\040de\040clases}{section.10.1}% 52
+\BOOKMARK [1][-]{section.10.2}{Servicio\040web}{chapter.10}% 53
+\BOOKMARK [2][-]{subsection.10.2.1}{Diagrama\040de\040clases}{section.10.2}% 54
+\BOOKMARK [0][-]{chapter.11}{Implementación}{}% 55
+\BOOKMARK [1][-]{section.11.1}{Análisis de sentimientos}{chapter.11}% 56
+\BOOKMARK [2][-]{subsection.11.1.1}{Tratamiento\040de\040los\040datos}{section.11.1}% 57
+\BOOKMARK [2][-]{subsection.11.1.2}{Algoritmos}{section.11.1}% 58
+\BOOKMARK [1][-]{section.11.2}{Servicio\040web}{chapter.11}% 59
+\BOOKMARK [2][-]{subsection.11.2.1}{Visualizar\040comentarios}{section.11.2}% 60
+\BOOKMARK [2][-]{subsection.11.2.2}{Añadir comentarios}{section.11.2}% 61
+\BOOKMARK [2][-]{subsection.11.2.3}{Editar\040comentarios}{section.11.2}% 62
+\BOOKMARK [2][-]{subsection.11.2.4}{Borrar\040comentarios}{section.11.2}% 63
+\BOOKMARK [0][-]{chapter.12}{Resultados}{}% 64
+\BOOKMARK [1][-]{section.12.1}{Corpus\040de\040datos}{chapter.12}% 65
+\BOOKMARK [2][-]{subsection.12.1.1}{Corpus\040TASS}{section.12.1}% 66
+\BOOKMARK [2][-]{subsection.12.1.2}{Corpus\040Cine}{section.12.1}% 67
+\BOOKMARK [1][-]{section.12.2}{Machine\040learning}{chapter.12}% 68
+\BOOKMARK [2][-]{subsection.12.2.1}{Línea base}{section.12.2}% 69
+\BOOKMARK [2][-]{subsection.12.2.2}{Experimentos\040de\040mejora\040Machine\040Learning}{section.12.2}% 70
+\BOOKMARK [1][-]{section.12.3}{Deep\040Learning}{chapter.12}% 71
+\BOOKMARK [2][-]{subsection.12.3.1}{Selección de parámetros}{section.12.3}% 72
+\BOOKMARK [2][-]{subsection.12.3.2}{2\040clases}{section.12.3}% 73
+\BOOKMARK [2][-]{subsection.12.3.3}{3\040clases}{section.12.3}% 74
+\BOOKMARK [2][-]{subsection.12.3.4}{5\040clases}{section.12.3}% 75
+\BOOKMARK [2][-]{subsection.12.3.5}{Conclusiones}{section.12.3}% 76
+\BOOKMARK [0][-]{chapter.13}{Solución desarrollada}{}% 77
+\BOOKMARK [1][-]{section.13.1}{Sección de comentarios}{chapter.13}% 78
+\BOOKMARK [1][-]{section.13.2}{Publicación de comentarios}{chapter.13}% 79
+\BOOKMARK [1][-]{section.13.3}{Edición y eliminación de comentarios}{chapter.13}% 80
+\BOOKMARK [0][-]{appendix.A}{Material\040adicional}{}% 81
+\BOOKMARK [1][-]{section.A.1}{Análisis de resultados}{appendix.A}% 82
+\BOOKMARK [2][-]{subsection.A.1.1}{Línea base - 5 clases}{section.A.1}% 83
+\BOOKMARK [1][-]{section.A.2}{Resultados\040GridSearch\040en\040Machine\040Learning}{appendix.A}% 84
+\BOOKMARK [2][-]{subsection.A.2.1}{2\040clases}{section.A.2}% 85
+\BOOKMARK [2][-]{subsection.A.2.2}{3\040clases}{section.A.2}% 86
+\BOOKMARK [2][-]{subsection.A.2.3}{5\040clases}{section.A.2}% 87
+\BOOKMARK [1][-]{section.A.3}{Trabajo futuro diseño web}{appendix.A}% 88
+\BOOKMARK [2][-]{subsection.A.3.1}{Página principal}{section.A.3}% 89
+\BOOKMARK [2][-]{subsection.A.3.2}{Ficha\040de\040producto}{section.A.3}% 90
+\BOOKMARK [0][-]{appendix*.68}{Lista de acrónimos}{}% 91
+\BOOKMARK [0][-]{appendix*.69}{Glosario}{}% 92
+\BOOKMARK [0][-]{appendix*.70}{Bibliografía}{}% 93

@@ -1,0 +1,55 @@
+\chapter{Metodología de desarrollo}
+
+\lettrine{E}{n} este capítulo describiremos la metodología elegida para la planificación y seguimiento del proyecto para posteriormente explicar sus características definitorias y las fases que lo componen, esto nos servirá como introducción para la explicación de la planificación realizada explicada en el capítulo \ref{sec:plani}.
+
+\section{Proceso de desarrollo unificado}
+
+El Proceso Unificado de Desarrollo Software o simplemente Proceso Unificado es un marco de desarrollo de software que se caracteriza por estar dirigido por casos de uso, centrado en la arquitectura y por ser iterativo e incremental. El refinamiento más conocido y documentado del Proceso Unificado es el Proceso Unificado de Rational o simplemente RUP.
+
+\subsection{Características}
+
+A continuación explicaremos las características que definen esta metodología.
+
+\subsubsection{Iterativo e incremental}
+
+El Proceso Unificado es un marco de desarrollo iterativo e incremental compuesto de cuatro fases denominadas Inicio, Elaboración, Construcción y Transición. Cada una de estas fases es a su vez dividida en una serie de iteraciones (la de inicio puede incluir varias iteraciones en proyectos grandes). Estas iteraciones ofrecen como resultado un incremento del producto desarrollado que añade o mejora las funcionalidades del sistema en desarrollo.
+
+Cada una de estas iteraciones se divide a su vez en una serie de disciplinas:
+\begin{itemize}
+	\item Análisis de requisitos: En esta fase se analizan las necesidades de los usuarios finales del software para determinar qué objetivos debe cubrir. De esta fase surge una memoria llamada SRD (documento de especificación de requisitos), que contiene la especificación completa de lo que debe hacer el sistema sin entrar en detalles internos.
+	\item Diseño: Descompone y organiza el sistema en elementos que puedan elaborarse por separado, aprovechando las ventajas del desarrollo en equipo. Como resultado surge el SDD (Documento de Diseño del Software)
+	\item Implementación: Es la fase en donde se implementa el código fuente.
+	\item Prueba: Los elementos, ya programados, se ensamblan para componer el sistema y se comprueba que funciona correctamente y que cumple con los requisitos, antes de ser entregado al usuario final.
+\end{itemize}
+
+\subsubsection{Dirigido por los casos de uso}
+
+En el Proceso Unificado los casos de uso se utilizan para capturar los requisitos funcionales y para definir los contenidos de las iteraciones. La idea es que cada iteración tome un conjunto de casos de uso o escenarios y desarrolle todo el camino a través de las distintas disciplinas.
+
+\subsubsection{Centrado en la arquitectura}
+
+El Proceso Unificado asume que no existe un modelo único que cubra todos los aspectos del sistema. Por dicho motivo existen múltiples modelos y vistas que definen la arquitectura de software de un sistema.
+
+\subsubsection{Enfocado a los riesgos}
+
+El Proceso Unificado requiere que el equipo del proyecto se centre en identificar los riesgos críticos en una etapa temprana del ciclo de vida. Los resultados de cada iteración, en especial los de la fase de Elaboración deben ser seleccionados en un orden que asegure que los riesgos principales son considerados primero.
+
+\subsection{Fases}
+
+El PUD se puede dividir en cuatro fases que ayudaran tanto en la elaboración del software como a la resolución de problemas.
+
+\subsubsection{Inicio}
+
+En la fase de inicio se define el negocio: facilidad de realizar el proyecto, se presenta un modelo, visión, metas, deseos del usuario, plazos, costos y viabilidad.
+
+\subsubsection{Elaboración}
+
+En esta fase se obtiene la visión refinada del proyecto a realizar, la implementación iterativa del núcleo de la aplicación, la resolución de riesgos altos, nuevos requisitos y se ajustan las estimaciones.
+
+\subsubsection{Construcción}
+
+Esta abarca la evolución hasta convertirse en producto listo incluyendo requisitos mínimos. Aquí se afinan los detalles menores como los diferentes tipos de casos o los riesgos menores.
+
+\subsubsection{Transición}
+
+En esta fase final, el programa debe estar listo para ser probado, instalado y utilizado por el cliente sin ningún problema. Una vez finalizada esta fase, se debe comenzar a pensar en futuras novedades para la misma.
