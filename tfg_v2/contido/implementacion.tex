@@ -20,7 +20,7 @@ La tokenización es el paso base del preprocesado de textos, este paso consiste 
 
 Estos tokens son utilizados como entrada del resto de procesos de los que hablamos en esta sección.
 
-\subsubsection{Eliminación carácteres raros}
+\subsubsection{Eliminación caracteres raros}
 
 Dado que los textos proceden de entornos online es común encontrar en ellos elementos como URL, e-mails, abreviaturas, hashtags, nominaciones a usuarios (@usuario) o caracteres raros como signos de puntuación, corchetes, exclamaciones, etc. Estos elementos no aportan información importante a la hora de realizar una clasificación de los textos por lo que los eliminaremos de los mismos o los substituiremos por elementos que sí puedan aportar, como en el caso de algunas abreviaturas. Para entender el por qué de la substitución de abreviaturas hay que tener en cuenta que en el proceso de filtrado se escogen las palabras con más presencia en los documentos, por lo que si en algunos documentos aparece la palabra "gracias" que puede aportar un sentimiento positivo al mismo y en otros aparece la palabra "thx" de la abreviatura de la palabra inglesa "thanks", podemos encontrarnos un caso de disolución de la relevancia de la misma y que termine por no utilizarse como elemento del clasificador. 
 
@@ -42,7 +42,7 @@ Para que el sistema interprete correctamente estos elementos es necesario crear 
 
 \subsubsection{Tratamiento negación}\label{negtrat}
 
-Los algoritmos de clasificación tradicionales no son capaces de manejar la negación por si mismos, por eso en este ámbito se han presentado varios estudios que abordan distintas formas de preparar o interpretar los datos con la intención de solventar este problema. Sin embargo la gran mayoría de los estudios encontrados se centran en el tratamiento de los textos en inglés, dominio en el cual podemos encontrar muchos más recursos que para nuestro idioma, teniendo clasificadores POS muy avanzados, así como diccionarios de sinónimos y antónimos.
+Los algoritmos de clasificación tradicionales no son capaces de manejar la negación por si mismos, por eso en este ámbito se han presentado varios estudios que abordan distintas formas de preparar o interpretar los datos con la intención de solventar este problema. Sin embargo la gran mayoría de los estudios encontrados se centran en el tratamiento de los textos en inglés, dominio en el cual podemos encontrar muchos más recursos que para nuestro idioma, teniendo etiquetadores POS muy avanzados, así como diccionarios de sinónimos y antónimos.
 
 En este estudio nos basaremos en una aproximación simple utilizada en estudios como \cite{Coupling} \cite{Custreviews} en la cual se niegan las palabras posteriores a la detección de la negación dentro de una cierta ventana.
 
@@ -174,7 +174,7 @@ El algoritmo consigue computar \(P(y|x)\) extrayendo una serie de característic
 \end{equation}
 
 Sin embargo esta ecuación produce resultados entre \(-\infty\ y\ \infty\) por lo que no son valores válidos, ya que deben estar entre 0 y 1. Esto se soluciona aplicando una función exponencial al producto \(wf\) de forma que todos los resultados sean positivos, y posteriormente aplicando un denominador que transforme los valores en resultados \emph{legales}, es decir, entre 0 y 1.
-Dado que las caracterizadas \(f\) no son solo una propiedad de la observación (documento) \(x\) si no una propiedad tanto de la observación como de la clase candidata \(c\). por la tanto la notación \(f_i(x)\) pasa a ser \(f_i(c,x)\), dando como resultado \ref{eq:7}.
+Dado que las caracterizadas \(f\) no son solo una propiedad de la observación (documento) \(x\) si no una propiedad tanto de la observación como de la clase candidata \(c\). Por lo tanto la notación \(f_i(x)\) pasa a ser \(f_i(c,x)\), dando como resultado \ref{eq:7}.
 
 \begin{equation}\label{eq:7}
 \mathit{p(y = c|x) = \frac{1}{Z}exp(\sum_{i}w_if_i(c,x))}
@@ -208,12 +208,12 @@ La clase de cualquier otro vector \(\overrightarrow{x_i}\) no perteneciente al c
 
 si \(\overrightarrow{w}\overrightarrow{x_i}+b \ge 0\) entonces el elemento pertenece a la clase en la que estamos interesados, si no pertenece a la otra clase.
 
-Como vemos este caso de SVM simple, es solo válido para problemas linealmente separables, para clasificaciones más complejas es necesario mapear los datos a un espacio de mayor dimensionalidad donde se vuelvan linealmente separables utilizando funciones conocidas como funciones de \textbf{kernel}
+Como vemos este caso de SVM simple, es solo válido para problemas linealmente separables, para clasificaciones más complejas es necesario mapear los datos a un espacio de mayor dimensionalidad donde se vuelvan linealmente separables utilizando funciones conocidas como funciones de \textbf{kernel}.
 
-Para realizar una clasificación multiclase podemos proceder utilizando dos aproximaciones
+Para realizar una clasificación multiclase podemos proceder utilizando dos aproximaciones:
 
 \begin{itemize}
-	\item \textbf{Uno contra todos}: En esta aproximación se construye un clasificador por clase, cada uno de ellos toma una clase como positiva y el resto de clases como negativas, clasificando los elementos solo si son aceptados en dicha clase, y descartado en caso contrario.
+	\item \textbf{Uno contra todos}: En esta aproximación se construye un clasificador por clase, cada uno de ellos toma una clase como positiva y el resto de clases como negativas, clasificando los elementos solo si son aceptados en dicha clase, y descartando en caso contrario.
 	\item \textbf{Uno contra uno}: Se construyen clasificadores por cada par de clases y el elemento de estudio se clasifica en alguna de las dos clases pertenecientes al clasificador.
 \end{itemize}
 
@@ -244,7 +244,7 @@ Este es el primero de los algoritmos perteneciente a la subsección de Deep Lear
 	\label{redneuronal}
 \end{figure}
 
-Las redes neuronales son sistemas de computación basados en las redes neuronales biológicas, que pueden ser descritas matemáticamente como \(f: X -> Y\), típicamente, están compuestas de una capa de entrada, una serie de capas ocultas y una capa de salida (ver \ref{redneuronal}), en estas capas ocultas se calculan una serie de pesos \(w\) que son propagados hacia la siguiente neurona mediante la ecuación \ref{eq:8}
+Las redes neuronales son sistemas de computación basados en las redes neuronales biológicas, que pueden ser descritas matemáticamente como \(f: X -> Y\), típicamente, están compuestas de una capa de entrada, una serie de capas ocultas y una capa de salida (ver Figura \ref{redneuronal}), en estas capas ocultas se calculan una serie de pesos \(w\) que son propagados hacia la siguiente neurona mediante la ecuación \ref{eq:8}
 
 \begin{equation} \label{eq:8}
 \mathit{p_j(t) = \sum_io_i(t)w_{ij}}
@@ -252,7 +252,7 @@ Las redes neuronales son sistemas de computación basados en las redes neuronale
 
 Así mismo la función de una neurona \(f(x)\) es definida por una composición de otras funciones \(g_i(x)\) que pueden a su vez ser descompuestas en otras funciones. Típicamente esta función se representa como \(f(x) = K(\sum_iw_ig_i(x))\) donde \(K\) es una función de activación predefinida como una tangente parabólica, una función sigmoidal o una función softmax por ejemplo. 
 
-Estas redes de tipo feedforward no mantienen noción de orden en el tiempo, por lo que cada input se considera solo a si mismo. Para tratar problemas del dominio del lenguaje natural necesitamos que la red tenga memoria ya que es importante el orden en el que aparecen las palabras en el documento, esto se soluciona utilizando Redes Neuronales Recurrentes en las que cada salida de una neurona es entrada de la siguiente y a su vez entrada de si misma (ver la figura \ref{rnn}). Esta propiedad permite a estas redes tener memoria, de forma que el resultado de una salida se mantiene como información en el estado oculto de la neurona (hidden state o \(h_t\)) durante todo el proceso, esto se puede describir matemáticamente como con la ecuación \ref{eq:9}, en la que podemos ver que el estado oculto \(h_t\) recibe influencia del estado anterior \(h_{t - 1}\).
+Estas redes de tipo feedforward no mantienen noción de orden en el tiempo, por lo que cada input se considera solo a si mismo. Para tratar problemas del dominio del lenguaje natural necesitamos que la red tenga memoria ya que es importante el orden en el que aparecen las palabras en el documento, esto se soluciona utilizando Redes Neuronales Recurrentes en las que cada salida de una neurona es entrada de la siguiente y a su vez entrada de sí misma (ver la figura \ref{rnn}). Esta propiedad permite a estas redes tener memoria, de forma que el resultado de una salida se mantiene como información en el estado oculto de la neurona (hidden state o \(h_t\)) durante todo el proceso, esto se puede describir matemáticamente como con la ecuación \ref{eq:9}, en la que podemos ver que el estado oculto \(h_t\) recibe influencia del estado anterior \(h_{t - 1}\).
 
 \begin{equation} \label{eq:9}
 ht = \sigma(Wx-t + Uh_{t-1})

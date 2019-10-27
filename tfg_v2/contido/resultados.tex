@@ -6,7 +6,7 @@
 \section{Corpus de datos}\label{corpus}
 
 \subsection{Corpus TASS}
-Se trata de un corpus ofrecido por el TASS \endnote{http://www.sepln.org/workshops/tass/2016/tass2016.php}, taller que se centra en las tareas de análisis de sentimientos y de reputación para el idioma español, organizado como evento satélite en la conferencia anual de la SEPLN (Sociedad Española para el Procesamiento del Lenguaje Natural).
+Se trata de un corpus ofrecido por el TASS \footnote{http://www.sepln.org/workshops/tass/2016/tass2016.php}, taller que se centra en las tareas de análisis de sentimientos y de reputación para el idioma español, organizado como evento satélite en la conferencia anual de la SEPLN (Sociedad Española para el Procesamiento del Lenguaje Natural).
 
 Proponen dos tipos de clasificaciones: una basada en un sistema de 6 clases (Positivo +, Positivo, Neutro, Negativo, Negativo +, None) y otra en 4 clases (Negativo, Neutro, Positivo, None).
 
@@ -61,9 +61,20 @@ Dado este análisis podemos deducir que el modelo de clasificación tendrá faci
 
 \subsection{Corpus Cine}
 
-Ya que en el momento actual no tenemos conocimiento de como van a ser los textos reales del dominio de la aplicación necesitamos probar los modelos contra textos mas extensos y escritos de una forma más formal.
+Ya que en el momento actual no tenemos conocimiento de como van a ser los textos reales del dominio de la aplicación necesitamos probar los modelos contra textos más extensos y escritos de una forma más formal.
 
-Se trata de un corpus descargado de la página MuchoCine.com para el trabajo, con la intención de disponer de un conjunto de documentos más extenso, tanto en número de documentos como en cantidad de palabras por documento (ver fig. \ref{dist_tokes_pelis}). 
+Se trata de un corpus descargado de la página MuchoCine.com para el trabajo, con la intención de disponer de un conjunto de documentos más extenso, tanto en número de documentos como en cantidad de palabras por documento (ver fig. \ref{dist_tokes_pelis}).
+
+Estos documentos están clasificados con un sistema de cinco estrellas que se puede traducir a la clasificación realizada en nuestro sistema de la siguiente forma:
+
+\begin{itemize}
+	\item 5 estrellas: Positivo+.
+	\item 4 estrellas: Positivo.
+	\item 3 estrellas: Neutro.
+	\item 2 estrellas: Negativo.
+	\item 1 estrella: Negativo+.
+\end{itemize}
+
 Con esto podremos comprobar el funcionamiento de los modelos en un dominio distinto al del conjunto de entrenamiento, y comprobar si son aptos para desplegar en producción.
 
 \begin{figure}[!ht]
@@ -73,7 +84,7 @@ Con esto podremos comprobar el funcionamiento de los modelos en un dominio disti
 	\label{dist_tokes_pelis}
 \end{figure}
 
-Está compuesto por un total de 5000 documentos con una alta frecuencia de sentencias por documento en comparación con el corpus TASS.
+Está compuesto por un total de 5000 documentos con un alto número de oraciones por documento en comparación con el corpus TASS.
 
 \begin{figure}[!ht]
 	\centering
@@ -89,7 +100,7 @@ En este caso los usuarios de la red tienen tendencia a realizar críticas con va
 
 En las siguientes secciones comprobaremos el funcionamiento de los modelos para la clasificación de documentos del mismo dominio (TASS) y de distinto dominio (Cine).
 
-Para establecer una linea base sobre la que probar  nuevos modelos o mejoras se ha realizado un entrenamiento con los parámetros por defecto de los modelos explicados en la sección \ref{alg}: MNB, LR, SVM, RF.
+Para establecer una línea base sobre la que probar  nuevos modelos o mejoras se ha realizado un entrenamiento con los parámetros por defecto de los modelos explicados en la sección \ref{alg}: MNB, LR, SVM, RF.
 
 
 \subsection{Línea base}
@@ -110,8 +121,8 @@ Para establecer una linea base sobre la que probar  nuevos modelos o mejoras se 
 		rf      &  73.92 &  78.60 &  26.08 &   74.54 &  51.88 &  48.44 &  48.12 &   63.21 \\
 		\hline
 	\end{tabular}
-	\caption{Resultados en \% entrenamiento para linea base.}
-	\label{result-linea-base}
+	\caption{Resultados en \% entrenamiento para línea base.}
+	\label{result-línea-base}
 \end{table}
 
 El modelo con mejores resultados es MNB, con un resultado de f1 de 82.32\% para el corpus TASS y un 63.90\% para el corpus de críticas de cine.
@@ -133,8 +144,8 @@ El modelo con mejores resultados es MNB, con un resultado de f1 de 82.32\% para 
 		rf      &  68.05 &  68.05 &  110.27 &   68.05 &  32.78 &  32.78 &  137.66 &   32.78 \\
 		\hline
 	\end{tabular}
-	\caption{Resultados en \% entrenamiento para linea base de 3 clases.}
-	\label{result-linea-base-3-clases}
+	\caption{Resultados en \% entrenamiento para línea base de 3 clases.}
+	\label{result-línea-base-3-clases}
 \end{table}
 
 Al igual que en el caso de la clasificación binaria, el modelo con mejores resultados es el de Bayes con un 73.19\% para el TASS y un 37.35\% para las críticas de cine.
@@ -155,11 +166,11 @@ Al igual que en el caso de la clasificación binaria, el modelo con mejores resu
 		rf      &  43.53 &  43.53 &  243.98 &   43.53 &  17.92 &  17.92 &  298.46 &   17.92 \\
 		\hline
 	\end{tabular}
-	\caption{Resultados en \% entrenamiento para linea base de 5 clases.}
-	\label{result-linea-base-5-clases}
+	\caption{Resultados en \% entrenamiento para línea base de 5 clases.}
+	\label{result-línea-base-5-clases}
 \end{table}
 
-En este csao las clasificaciones han bajado notablemente el resultado de la medida f1, obteniendo un 50.73\% para Bayes, pero en el caso del corpus de Cine las clasificaciones se encuentran por debajo de la aleatoriedad (20\% por ser 5 clases).
+En este caso las clasificaciones han bajado notablemente el resultado de la medida f1, obteniendo un 50.73\% para Bayes, pero en el caso del corpus de Cine las clasificaciones se encuentran por debajo de la aleatoriedad (20\% por ser 5 clases).
 
 En el material anexo (sección \ref{analisis_bl_5}) se muestra un estudio sobre las causas de esta problemática.
 
@@ -180,7 +191,7 @@ Como se menciona en \ref{sect:ML} para el establecimiento de la línea base se h
 	\item Número de estimadores para RF (10 o 100).
 \end{itemize}
 
-Además se han repetido las mismas utilizando preprocesado mediante CountVectorizer y mediant TFIDF.
+Además se han repetido el proceso utilizando como preprocesador CountVectorizer y TFIDF.
 
 
 
@@ -261,7 +272,7 @@ En cuanto a los modelos vemos que Bayes es el que mejor funciona para el CountVe
 
 Con esto podemos deducir que deberíamos escoger Tf-idf como selector de características y el modelo SVM para realizar las clasificaciones.
 
-En el material anexo se incluyen también resultados de adaptación al dominio para los modelos optimizados por grid search. Si comparamos los resultados de los clasificadores en el conjunto de test (tablas \ref{result-cv-test}, \ref{result-cv-test-3-clases} y \ref{result-cv-test-5-clases}) con los resultados en el dominio de criticas de cine (tablas \ref{result-cv-test-cine}, \ref{result-cv-test-3-clases-cine} y \ref{result-cv-test-5-clases-cine}) vemos que los modelos son tolerantes a la aparición de nuevos datos del mismo dominio pero su rendimiento baja notablemente en el otro caso. Esto se debe a que el algoritmo de selección de características está limitado a los elementos encontrados en el primer dominio y el resto de elementos del segundo dominio no serán tenidos en cuenta, provocando perdida de información.
+En el material anexo se incluyen también resultados de adaptación al dominio para los modelos optimizados por grid search. Si comparamos los resultados de los clasificadores en el conjunto de test (tablas \ref{result-cv-test}, \ref{result-cv-test-3-clases} y \ref{result-cv-test-5-clases}) con los resultados en el dominio de críticas de cine (tablas \ref{result-cv-test-cine}, \ref{result-cv-test-3-clases-cine} y \ref{result-cv-test-5-clases-cine}) vemos que los modelos son tolerantes a la aparición de nuevos datos del mismo dominio pero su rendimiento baja notablemente en el otro caso. Esto se debe a que el algoritmo de selección de características está limitado a los elementos encontrados en el primer dominio y el resto de elementos del segundo dominio no serán tenidos en cuenta, provocando pérdida de información.
 
 
 \section{Deep Learning}
@@ -315,7 +326,7 @@ Dado que la tendencia de este modelo es buena se han realizado pruebas configura
 
 \begin{itemize}
 	\item Dropout: Se introduce ruido sintético al modelo, apagando de forma aleatoria las neuronas durante el entrenamiento.
-	\item Inicialización de pesos: Se cambia la inicialización de los pesos de las neuronas de la capa oculta, utilizando un tipo de inicialización conocida como Xavier initilization \cite{Glorot} o glorot normal, la cual asigna pesos de una distribución normal trucada centrada en el 0.
+	\item Inicialización de pesos: Se cambia la inicialización de los pesos de las neuronas de la capa oculta, utilizando un tipo de inicialización conocida como Xavier initilization \cite{Glorot} o glorot normal, la cual asigna pesos de una distribución normal truncada centrada en el 0.
 	\item Normalización de batch: Se normaliza la salida de la anterior capa de activación restando la media del batch y dividiendo por desviación típica. Con esto se consiguen entrenamientos más rápidos y menor varianza entre los resultados.
 \end{itemize}
 
@@ -466,7 +477,7 @@ Los modelos complejos se comportan mejor en la clasificación con cambio de domi
 
 A pesar de que el mejor resultado en este experimento lo obtiene una red convolucional, vemos en la fig. \ref{conv-5} que durante su entrenamiento se ha producido un sobreentrenamiento.
 
-Por otro lado los modelos Glorot con normalización de batch y sin ella presentan una tendencia a la baja como se ve en la figuras \ref{go-5} y \ref{gn-5} por lo que tenemos margen de mejora modificando hiperparámetros o ampliando el número de iteraciones hasta que se deje de apreciar una tendencia descendente en el entrenamiento.
+Por otro lado los modelos Glorot con normalización de batch y sin ella presentan una tendencia a la baja como se ve en las figuras \ref{go-5} y \ref{gn-5} por lo que tenemos margen de mejora modificando hiperparámetros o ampliando el número de iteraciones hasta que se deje de apreciar una tendencia descendente en el entrenamiento.
 
 
 \begin{figure}[H]
@@ -499,7 +510,7 @@ Las topologías complejas tienen tendencia a adaptarse muy rápido a los conjunt
 
 Podemos concluir que para la puesta en producción deberíamos utilizar los modelos de Deep Learning.
 
-Además hemos demostrado que el corpus propuesto para los entrenamientos no nos garantiza los resultados finales, dado que desconocemos como van a ser los comentarios finales publicados en la aplicación. En estos experimentos hemos demostrado que si los documentos tienen mayor dimensionalidad que el corpus TASS se puede producir perdida de información al cambiar de dominio y por lo tanto conseguir un peor rendimiento de los modelos.
+Además hemos demostrado que el corpus propuesto para los entrenamientos no nos garantiza los resultados finales, dado que desconocemos como van a ser los comentarios finales publicados en la aplicación. En estos experimentos hemos demostrado que si los documentos tienen mayor dimensionalidad que el corpus TASS se puede producir pérdida de información al cambiar de dominio y por lo tanto conseguir un peor rendimiento de los modelos.
 
 Sería recomendable comenzar con una clasificación por umbrales, de forma que solo resulten clasificados automáticamente aquellos textos que tengan una probabilidad de pertenecer a una clase mayor a un tanto por ciento establecido entre la empresa y el cliente, además de ofrecer al usuario la posibilidad de clasificar su comentario, de esta forma dispondríamos de un corpus de comentarios con un valor establecido por humanos.
 

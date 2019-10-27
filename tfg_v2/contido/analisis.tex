@@ -62,5 +62,5 @@ Cada módulo sigue un patrón de acceso a datos DAO para abstraerse de la tecnol
 
 El frontal web se estructura con un patrón MVC (Modelo-Vista-Controlador) en el que el servicio realiza las llamadas asíncronas al API REST y devuelve los datos al controlador, que se encargará de la comunicación entre las vistas y los servicios.
 
-\section{Trabajo futuro} Esta arquitectura se podría simplificar utilizando la nueva librería de javascript TensorflowJS. Con esto podríamos eliminar el sistema de clasificación de comentarios, clasificándolos en caliente en el momento de su publicación desde la aplicación WEB. 
+\section{Trabajo futuro} Esta arquitectura se podría simplificar utilizando la nueva librería de javascript TensorflowJS. Con esto podríamos eliminar el sistema de clasificación de comentarios, clasificándolos en caliente en el momento de su publicación desde la aplicación web. 
 Para utilizar esta librería solo necesitamos tener un modelo guardado en formato .h5, y dado que la clasificación es un proceso ligero no se espera que suponga una carga importante para el usuario final.

@@ -112,7 +112,7 @@
 \contentsline {section}{\numberline {11.1}Análisis de sentimientos}{43}{section.11.1}% 
 \contentsline {subsection}{\numberline {11.1.1}Tratamiento de los datos}{43}{subsection.11.1.1}% 
 \contentsline {subsubsection}{Tokenización}{43}{subsection.11.1.1}% 
-\contentsline {subsubsection}{Eliminación carácteres raros}{44}{subsection.11.1.1}% 
+\contentsline {subsubsection}{Eliminación caracteres raros}{44}{subsection.11.1.1}% 
 \contentsline {subsubsection}{Eliminación letras repetidas}{44}{subsection.11.1.1}% 
 \contentsline {subsubsection}{Tratamiento emoticonos}{44}{subsection.11.1.1}% 
 \contentsline {subsubsection}{Tratamiento negación}{45}{subsection.11.1.1}% 
@@ -142,7 +142,7 @@
 \contentsline {section}{\numberline {12.1}Corpus de datos}{59}{section.12.1}% 
 \contentsline {subsection}{\numberline {12.1.1}Corpus TASS}{59}{subsection.12.1.1}% 
 \contentsline {subsection}{\numberline {12.1.2}Corpus Cine}{61}{subsection.12.1.2}% 
-\contentsline {section}{\numberline {12.2}Machine learning}{62}{section.12.2}% 
+\contentsline {section}{\numberline {12.2}Machine learning}{63}{section.12.2}% 
 \contentsline {subsection}{\numberline {12.2.1}Línea base}{63}{subsection.12.2.1}% 
 \contentsline {subsubsection}{2 clases}{63}{subsection.12.2.1}% 
 \contentsline {subsubsection}{3 clases}{64}{table.caption.34}% 
@@ -165,15 +165,15 @@
 \contentsline {section}{\numberline {13.3}Edición y eliminación de comentarios}{78}{section.13.3}% 
 \contentsline {paragraph}{Trabajo futuro}{78}{figure.caption.57}% 
 \contentsline {chapter}{\numberline {A}Material adicional}{81}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Análisis de resultados}{81}{section.A.1}% 
+\contentsline {section}{\numberline {A.1}Análisis de resultados sobre distinto dominio}{81}{section.A.1}% 
 \contentsline {subsection}{\numberline {A.1.1}Línea base - 5 clases}{81}{subsection.A.1.1}% 
-\contentsline {section}{\numberline {A.2}Resultados GridSearch en Machine Learning}{82}{section.A.2}% 
-\contentsline {subsection}{\numberline {A.2.1}2 clases}{82}{subsection.A.2.1}% 
-\contentsline {subsection}{\numberline {A.2.2}3 clases}{83}{subsection.A.2.2}% 
-\contentsline {subsection}{\numberline {A.2.3}5 clases}{83}{subsection.A.2.3}% 
-\contentsline {section}{\numberline {A.3}Trabajo futuro diseño web}{84}{section.A.3}% 
-\contentsline {subsection}{\numberline {A.3.1}Página principal}{85}{subsection.A.3.1}% 
-\contentsline {subsection}{\numberline {A.3.2}Ficha de producto}{86}{subsection.A.3.2}% 
-\contentsline {chapter}{Lista de acrónimos}{87}{appendix*.68}% 
-\contentsline {chapter}{Glosario}{89}{appendix*.69}% 
-\contentsline {chapter}{Bibliografía}{91}{appendix*.70}% 
+\contentsline {section}{\numberline {A.2}Resultados GridSearch en Machine Learning}{83}{section.A.2}% 
+\contentsline {subsection}{\numberline {A.2.1}2 clases}{83}{subsection.A.2.1}% 
+\contentsline {subsection}{\numberline {A.2.2}3 clases}{84}{subsection.A.2.2}% 
+\contentsline {subsection}{\numberline {A.2.3}5 clases}{84}{subsection.A.2.3}% 
+\contentsline {section}{\numberline {A.3}Trabajo futuro diseño web}{85}{section.A.3}% 
+\contentsline {subsection}{\numberline {A.3.1}Página principal}{86}{subsection.A.3.1}% 
+\contentsline {subsection}{\numberline {A.3.2}Ficha de producto}{87}{subsection.A.3.2}% 
+\contentsline {chapter}{Lista de acrónimos}{89}{appendix*.68}% 
+\contentsline {chapter}{Glosario}{91}{appendix*.69}% 
+\contentsline {chapter}{Bibliografía}{93}{appendix*.70}% 

@@ -393,7 +393,6 @@ INPUT imaxes/cnn.png
 OUTPUT contido/resultados.aux
 INPUT contido/resultados.tex
 INPUT contido/resultados.tex
-OUTPUT memoria_tfg.ent
 INPUT imaxes/distTass.png
 INPUT imaxes/distTokensTass.png
 INPUT imaxes/dist_pos_neg.png
