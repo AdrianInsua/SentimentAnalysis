@@ -4,63 +4,63 @@
 \select@language {english}
 \select@language {spanish}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Evolución del uso de las redes sociales\relax }}{1}{figure.caption.4}% 
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Evolución del uso de las redes sociales\relax }}{1}{figure.caption.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Publicaciones sobre Análisis de sentimientos en el IEEE desde 2004 hasta la actualidad\relax }}{7}{figure.caption.5}% 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Publicaciones en el IEEE desde 2010 que están relacionadas al término de búsqueda: sentiment analysis deep learning.\relax }}{8}{figure.caption.6}% 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Publicaciones sobre Análisis de sentimientos en el IEEE desde 2004 hasta la actualidad\relax }}{7}{figure.caption.5}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Publicaciones en el IEEE desde 2010 que están relacionadas al término de búsqueda: sentiment analysis deep learning.\relax }}{8}{figure.caption.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Diagrama de Gantt del proyecto (BCS).\relax }}{23}{figure.caption.7}% 
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Diagrama de Gantt del proyecto (BCS).\relax }}{23}{figure.caption.7}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Casos de uso\relax }}{27}{figure.caption.10}% 
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Casos de uso\relax }}{27}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Arquitectura general del sistema\relax }}{33}{figure.caption.11}% 
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Arquitectura del sistema de análisis de sentimientos\relax }}{34}{figure.caption.12}% 
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Arquitectura del clasificador\relax }}{34}{figure.caption.13}% 
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Arquitectura del servicio y frontal web.\relax }}{35}{figure.caption.14}% 
-\contentsline {figure}{\numberline {8.5}{\ignorespaces Ejemplo de arquitectura de un módulo REST del servicio.\relax }}{35}{figure.caption.15}% 
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Arquitectura general del sistema\relax }}{33}{figure.caption.11}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Arquitectura del sistema de análisis de sentimientos\relax }}{34}{figure.caption.12}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Arquitectura del clasificador\relax }}{34}{figure.caption.13}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Arquitectura del servicio y frontal web.\relax }}{35}{figure.caption.14}
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Ejemplo de arquitectura de un módulo REST del servicio.\relax }}{35}{figure.caption.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Diagrama entidad relación para el subsistema de comentarios.\relax }}{38}{figure.caption.16}% 
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Modelo relacional para el subsistema de comentarios.\relax }}{38}{figure.caption.17}% 
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Diagrama entidad relación para el subsistema de comentarios.\relax }}{38}{figure.caption.16}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Modelo relacional para el subsistema de comentarios.\relax }}{38}{figure.caption.17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Diagrama de clases del sistema de análisis de sentimientos\relax }}{40}{figure.caption.18}% 
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Diagrama de clases de las entidades del modelo SQL\relax }}{41}{figure.caption.19}% 
-\contentsline {figure}{\numberline {10.3}{\ignorespaces Diagrama de clases de comentario.\relax }}{41}{figure.caption.20}% 
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Diagrama de clases del sistema de análisis de sentimientos\relax }}{40}{figure.caption.18}
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Diagrama de clases de las entidades del modelo SQL\relax }}{41}{figure.caption.19}
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Diagrama de clases de comentario.\relax }}{41}{figure.caption.20}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Representación de un hiper plano en una SVM\relax }}{50}{figure.caption.21}% 
-\contentsline {figure}{\numberline {11.2}{\ignorespaces Representación de una red neuronal\relax }}{52}{figure.caption.22}% 
-\contentsline {figure}{\numberline {11.3}{\ignorespaces Representación de una red neuronal recurrente\relax }}{53}{figure.caption.23}% 
-\contentsline {figure}{\numberline {11.4}{\ignorespaces Representación de una LSTM\relax }}{54}{figure.caption.24}% 
-\contentsline {figure}{\numberline {11.5}{\ignorespaces Representación de una red CNN\relax }}{55}{figure.caption.25}% 
-\contentsline {figure}{\numberline {11.6}{\ignorespaces Representación de una red CNN\relax }}{56}{figure.caption.26}% 
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Representación de un hiper plano en una SVM\relax }}{50}{figure.caption.21}
+\contentsline {figure}{\numberline {11.2}{\ignorespaces Representación de una red neuronal\relax }}{52}{figure.caption.22}
+\contentsline {figure}{\numberline {11.3}{\ignorespaces Representación de una red neuronal recurrente\relax }}{53}{figure.caption.23}
+\contentsline {figure}{\numberline {11.4}{\ignorespaces Representación de una LSTM\relax }}{54}{figure.caption.24}
+\contentsline {figure}{\numberline {11.5}{\ignorespaces Representación de una red CNN\relax }}{55}{figure.caption.25}
+\contentsline {figure}{\numberline {11.6}{\ignorespaces Representación de una red CNN\relax }}{56}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12.1}{\ignorespaces Distribución de la polarización.\relax }}{60}{figure.caption.27}% 
-\contentsline {figure}{\numberline {12.2}{\ignorespaces Histograma de número de palabras por documento.\relax }}{60}{figure.caption.28}% 
-\contentsline {figure}{\numberline {12.3}{\ignorespaces Distribución de las palabras polarizadas en tweets positivos\relax }}{60}{figure.caption.29}% 
-\contentsline {figure}{\numberline {12.4}{\ignorespaces Distribución de las palabras polarizadas en tweets negativos\relax }}{61}{figure.caption.30}% 
-\contentsline {figure}{\numberline {12.5}{\ignorespaces Distribución de las palabras polarizadas en tweets neutros\relax }}{61}{figure.caption.31}% 
-\contentsline {figure}{\numberline {12.6}{\ignorespaces Histograma de número de palabras por documento.\relax }}{62}{figure.caption.32}% 
-\contentsline {figure}{\numberline {12.7}{\ignorespaces Distribución de la polarización.\relax }}{63}{figure.caption.33}% 
-\contentsline {figure}{\numberline {12.8}{\ignorespaces Función de activación RELU\relax }}{68}{figure.caption.40}% 
-\contentsline {figure}{\numberline {12.9}{\ignorespaces Evolución entrenamiento modelo LSTM\relax }}{68}{figure.caption.41}% 
-\contentsline {figure}{\numberline {12.10}{\ignorespaces Evolución entrenamiento modelo LSTM simplificado\relax }}{69}{figure.caption.42}% 
-\contentsline {figure}{\numberline {12.11}{\ignorespaces Dropout con valor 0.2\relax }}{70}{figure.caption.43}% 
-\contentsline {figure}{\numberline {12.12}{\ignorespaces Inicialización Glorot más Dropout\relax }}{70}{figure.caption.44}% 
-\contentsline {figure}{\numberline {12.13}{\ignorespaces Inicialización Glorot, dropout y normalización de batch\relax }}{71}{figure.caption.45}% 
-\contentsline {figure}{\numberline {12.14}{\ignorespaces Evolución modelo LSTM con normalización de batch.\relax }}{73}{figure.caption.48}% 
-\contentsline {figure}{\numberline {12.15}{\ignorespaces Evolución modelo LSTM con normalización de batch e inicialización Glorot.\relax }}{73}{figure.caption.49}% 
-\contentsline {figure}{\numberline {12.16}{\ignorespaces Evolución modelo convolucional.\relax }}{74}{figure.caption.50}% 
-\contentsline {figure}{\numberline {12.17}{\ignorespaces Evolución modelo convolucional.\relax }}{75}{figure.caption.52}% 
-\contentsline {figure}{\numberline {12.18}{\ignorespaces Evolución modelo LSTM con normalización de batch e inicialización Glorot.\relax }}{75}{figure.caption.53}% 
-\contentsline {figure}{\numberline {12.19}{\ignorespaces Evolución modelo LSTM con normalización de batch.\relax }}{76}{figure.caption.54}% 
+\contentsline {figure}{\numberline {12.1}{\ignorespaces Distribución de la polarización.\relax }}{60}{figure.caption.27}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces Histograma de número de palabras por documento.\relax }}{60}{figure.caption.28}
+\contentsline {figure}{\numberline {12.3}{\ignorespaces Distribución de las palabras polarizadas en tweets positivos\relax }}{60}{figure.caption.29}
+\contentsline {figure}{\numberline {12.4}{\ignorespaces Distribución de las palabras polarizadas en tweets negativos\relax }}{61}{figure.caption.30}
+\contentsline {figure}{\numberline {12.5}{\ignorespaces Distribución de las palabras polarizadas en tweets neutros\relax }}{61}{figure.caption.31}
+\contentsline {figure}{\numberline {12.6}{\ignorespaces Histograma de número de palabras por documento.\relax }}{62}{figure.caption.32}
+\contentsline {figure}{\numberline {12.7}{\ignorespaces Distribución de la polarización.\relax }}{63}{figure.caption.33}
+\contentsline {figure}{\numberline {12.8}{\ignorespaces Función de activación RELU\relax }}{67}{figure.caption.40}
+\contentsline {figure}{\numberline {12.9}{\ignorespaces Evolución entrenamiento modelo LSTM\relax }}{68}{figure.caption.41}
+\contentsline {figure}{\numberline {12.10}{\ignorespaces Evolución entrenamiento modelo LSTM simplificado\relax }}{68}{figure.caption.42}
+\contentsline {figure}{\numberline {12.11}{\ignorespaces Dropout con valor 0.2\relax }}{69}{figure.caption.43}
+\contentsline {figure}{\numberline {12.12}{\ignorespaces Inicialización Glorot más Dropout\relax }}{70}{figure.caption.44}
+\contentsline {figure}{\numberline {12.13}{\ignorespaces Inicialización Glorot, dropout y normalización de batch\relax }}{70}{figure.caption.45}
+\contentsline {figure}{\numberline {12.14}{\ignorespaces Evolución modelo LSTM con normalización de batch.\relax }}{72}{figure.caption.48}
+\contentsline {figure}{\numberline {12.15}{\ignorespaces Evolución modelo LSTM con normalización de batch e inicialización Glorot.\relax }}{73}{figure.caption.49}
+\contentsline {figure}{\numberline {12.16}{\ignorespaces Evolución modelo convolucional.\relax }}{73}{figure.caption.50}
+\contentsline {figure}{\numberline {12.17}{\ignorespaces Evolución modelo convolucional.\relax }}{74}{figure.caption.52}
+\contentsline {figure}{\numberline {12.18}{\ignorespaces Evolución modelo LSTM con normalización de batch e inicialización Glorot.\relax }}{75}{figure.caption.53}
+\contentsline {figure}{\numberline {12.19}{\ignorespaces Evolución modelo LSTM con inicialización Glorot.\relax }}{75}{figure.caption.54}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Sección de comentarios en la ficha de artículo.\relax }}{77}{figure.caption.55}% 
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Publicación de comentarios.\relax }}{78}{figure.caption.56}% 
-\contentsline {figure}{\numberline {13.3}{\ignorespaces Edición y eliminación de comentarios.\relax }}{78}{figure.caption.57}% 
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Sección de comentarios en la ficha de artículo.\relax }}{77}{figure.caption.55}
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Publicación de comentarios.\relax }}{78}{figure.caption.56}
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Edición y eliminación de comentarios.\relax }}{78}{figure.caption.57}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Distribución de polaridades en los conjuntos de entrenamiento y test.\relax }}{82}{figure.caption.58}% 
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Matriz de confusión de la clasificación en 5 clases.\relax }}{83}{figure.caption.59}% 
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Página principal.\relax }}{86}{figure.caption.66}% 
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Ficha de producto.\relax }}{87}{figure.caption.67}% 
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Distribución de polaridades en los conjuntos de entrenamiento y test.\relax }}{82}{figure.caption.58}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Matriz de confusión de la clasificación en 5 clases.\relax }}{83}{figure.caption.59}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Página principal.\relax }}{86}{figure.caption.66}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Ficha de producto.\relax }}{87}{figure.caption.67}

@@ -44,7 +44,7 @@ Para que el sistema interprete correctamente estos elementos es necesario crear 
 
 Los algoritmos de clasificación tradicionales no son capaces de manejar la negación por si mismos, por eso en este ámbito se han presentado varios estudios que abordan distintas formas de preparar o interpretar los datos con la intención de solventar este problema. Sin embargo la gran mayoría de los estudios encontrados se centran en el tratamiento de los textos en inglés, dominio en el cual podemos encontrar muchos más recursos que para nuestro idioma, teniendo etiquetadores POS muy avanzados, así como diccionarios de sinónimos y antónimos.
 
-En este estudio nos basaremos en una aproximación simple utilizada en estudios como \cite{Coupling} \cite{Custreviews} en la cual se niegan las palabras posteriores a la detección de la negación dentro de una cierta ventana.
+En este trabajo nos basaremos en una aproximación simple utilizada en estudios como \cite{Coupling} \cite{Custreviews} en la cual se niegan las palabras posteriores a la detección de la negación dentro de una cierta ventana.
 
 \paragraph{Trabajo futuro} Se podría utilizar una aproximación consistente en un sistema de aprendizaje profundo en la que se detecte lo que se conoce como alcance de la negación, Según la gramática, el alcance de la negación corresponde a la totalidad de palabras afectadas por la misma. Basándonos en el trabajo realizado por \cite{Negacion} para anotar un corpus en el que se define un alcance y un tipo de negación, el objetivo sería realizar una clasificación de los textos y un posterior tratamiento de los mismos, transformándolos según las necesidades que sugiera el resultado obtenido.
 
@@ -94,14 +94,17 @@ En los algoritmos de Deep Learning se utiliza un diccionario de Word Embeddings 
 
 \subsubsection{Selección de modelos}
 
-Debido a la dependencia de los modelos del conjunto de datos de entrenamiento se ha utilizado un sistema de K-folds \cite{kfold}, mediante el cual realizaremos 10 divisiones distintas de los datos, compuestas cada uno de ellas de un subconjunto de entrenamiento y un conjunto de test. Esto nos permite entrenar los modelos en 10 conjuntos de datos distintos y obtener las métricas medias de los mismos para poder comparar los modelos y elegir el mejor.
+Debido a la dependencia de los modelos del conjunto de datos de entrenamiento se ha utilizado un sistema de K-folds cross validation \cite{kfold}, mediante el cual realizaremos 10 divisiones distintas de los datos, compuestas cada uno de ellas de un subconjunto de entrenamiento y un conjunto de test. Esto nos permite entrenar los modelos en 10 conjuntos de datos distintos y obtener las métricas medias de los mismos para poder comparar los modelos y elegir el mejor.
 
 Las métricas utilizadas son las siguientes:
 
 \begin{itemize}
 \item Accuracy (acc): Porcentaje de clasificaciones correctas (positivas y negativas) respecto al número total de observaciones o casos examinados.
-\item Precision (pr): Representa el porcentaje de clasificaciones positivas que han sido correctamente realizadas.
 \item Mean square error (mse): Error cuadrático medio de las clasificaciones, nos da una medida de la diferencia entre lo que se ha estimado y los valores reales.
+\item Precision (pr): Representa el porcentaje de clasificaciones positivas que han sido correctamente realizadas.
+\begin{equation}
+	Precision = \frac{TP}{TP + FP}
+\end{equation}
 \item Recall: denominado también sensibilidad o exhaustividad es la tasa de positivos verdaderos, es decir, el número de observaciones clasificadas correctamente respecto al total de observaciones.
 \begin{equation}
 	Recall = \frac{TP}{TP + FN}
@@ -118,7 +121,7 @@ Las métricas utilizadas son las siguientes:
 A continuación pasamos a describir los algoritmos de los clasificadores utilizados en la investigación, que se dividen en dos grandes ramas:
 
 \begin{itemize}
-	\item Machine learning: Algoritmos de aprendizaje automático como: Multinomial Naive Bayes, Logistic Regression, SVM, Random Forest.
+	\item Machine learning: Algoritmos de aprendizaje automático como: Multinomial Naive Bayes, Logistic Regression, SVM y Random Forest.
 	\item Deep Learning: Una subrama del Machine learning que utiliza redes neuronales para el aprendizaje como: LSTM, CNN y sus derivados.
 \end{itemize}
 
@@ -127,7 +130,7 @@ A continuación pasamos a describir los algoritmos de los clasificadores utiliza
 
 Como explican Jurafsky y Martin \cite{NaiveBayes} en su estudio, este clasificador se conoce por este nombre por ser un clasificador Bayesiano que parte de una fuerte suposición previa (naive) de que los elementos (palabras) no están correlacionadas.
 
-Este clasificador parte de un B.O.W y estudia las probabilidades de un documento de pertenecer a una clase dada la frecuencia de aparición de las palabras que lo componen a esa cierta clase, mediante una inferencia bayesiana, es decir un documento \(d \in D\) pertenecerá a una clase \(c \in C\) siendo \(C\) y \(D\) nuestros conjuntos de clases y documentos respectivamente, si:
+Este clasificador parte de un B.O.W y estudia las probabilidades de un documento de pertenecer a una clase dada la frecuencia de aparición de las palabras que lo componen, mediante una inferencia bayesiana, es decir un documento \(d \in D\) pertenecerá a una clase \(c \in C\) siendo \(C\) y \(D\) nuestros conjuntos de clases y documentos respectivamente, si:
 
 \begin{equation} \label{eq:1}
 \mathit{c = argmax\ P(x|d); x\ \in C,\ d \in D} 
@@ -269,7 +272,7 @@ Además en el entrenamiento de estas redes se utiliza un algoritmo de propagaci�
 
 Estos problemas en el algoritmo de propagación hacia atrás han sido uno de los motivos detrás de la creación de las redes LSTM o Long Short-Term Memory (ver \ref{lstm}).
 
-Las redes LSTM son un tipo de redes neuronales recurrentes propuestas en 1997 por Sepp Horchreiter y Jürgen Schmidhuber y mejoradas en el 2000 por Felix Gers junto con los autores anteriores, y han obtenido resultados record en compresión de textos en lenguaje natural y reconocimiento de escritura manual entre otras aplicaciones. Estas redes introducen una nueva estructura llamada celda de memoria, que se compone de cuatro elementos principales:
+Las redes LSTM son un tipo de redes neuronales recurrentes propuestas en 1997 por Sepp Horchreiter y Jürgen Schmidhuber y mejoradas en el 2000 por Felix Gers junto con los autores anteriores, y han obtenido resultados record en comprensión de textos en lenguaje natural y reconocimiento de escritura manual entre otras aplicaciones. Estas redes introducen una nueva estructura llamada celda de memoria, que se compone de cuatro elementos principales:
 \begin{itemize}
 	\item \textbf{input gate}: permite a las señales entrantes modificar el estado de la celda de memoria.
 	\item \textbf{neurona con una conexión recurrente}: permite que la celda tenga memoria

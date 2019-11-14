@@ -14,13 +14,13 @@
 
 \paragraph{Descripción} El usuario iniciará sesión en la aplicación introduciendo sus credenciales en un formulario.
 
-\paragraph{Precondición} N/A
+\paragraph{Precondición} El usuario está dado de alta en el sistema
 
 \paragraph{Secuencia} La secuencia de acciones será la siguiente:
 
 \begin{itemize}
 	\item El usuario pulsa el botón de inicio de sesión.
-	\item El usuario introducirá el usuario y contraseña en el formulario.
+	\item El usuario introducirá sus credenciales en el formulario.
 	\item Si las credenciales son correctas se notifica al usuario de que su sesión se ha iniciado y se cambia el botón de inicio de sesión por el botón de gestión de perfil.
 	\item Si las credenciales no son correctas se notifica al usuario y se vuelve a pedir que las introduzca de nuevo.
 \end{itemize}
@@ -31,7 +31,7 @@
 
 \paragraph{Descripción} El usuario visualizará los comentarios de un artículo cuando abra la ficha del mismo haciendo click sobre el mismo en la pantalla principal.
 
-\paragraph{Precondición} N/A
+\paragraph{Precondición} El articulo debe estar registrado en el sistema.
 
 \paragraph{Secuencia} El caso de uso comenzará cuando el usuario haga click sobre un artículo determinado en la rejilla de resultados de búsqueda.
 
@@ -39,7 +39,7 @@
 
 \paragraph{Descripción} El usuario podrá añadir comentarios relacionados con alguno de los artículos del sistema.
 
-\paragraph{Precondición} El usuario debe estar registrado.
+\paragraph{Precondición} El articulo debe estar registrado en el sistema.
 
 \paragraph{Secuencia} La secuencia de acciones será la siguiente:
 
@@ -52,7 +52,7 @@
 	\SubItem{3.3 Si el usuario cancela el envío del comentario se terminará el caso de uso.}
 \end{itemize}
 	
-\paragraph{Postcondición} El comentario quedará dado de alta en el sistema.
+\paragraph{Postcondición} El comentario quedará dado de alta en el sistema y asociado al artículo correspondiente.
 
 
 \section{Editar comentarios}
@@ -86,7 +86,7 @@
 \paragraph{Precondición} 
 \begin{itemize}
 	\item El usuario debe estar registrado.
-	\item El comentario a editar debe pertenecer al usuario.
+	\item El comentario a eliminar debe pertenecer al usuario.
 \end{itemize}
 
 \paragraph{Secuencia} La secuencia de acciones será la siguiente:

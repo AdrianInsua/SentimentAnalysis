@@ -20,7 +20,7 @@ Hemos visto en este tipo de sistemas una oportunidad de negocio, ofreciendo al c
 
 \section{Objetivos}
 
-El objetivo de esta investigación es el de analizar y comparar distintos modelos de clasificación de polaridades de textos utilizando procesamiento de lenguaje natural, para posteriormente utilizar estos modelos en la clasificación de comentarios realizados en una web de materiales de construcción.
+El objetivo de esta investigación es analizar y comparar distintos modelos de clasificación de polaridades de textos utilizando procesamiento de lenguaje natural, para posteriormente utilizar estos modelos en la clasificación de opiniones realizadas en una web de materiales de construcción.
 
 Además se implementarán los módulos necesarios en una aplicación web para facilitar al usuario la publicación de estos comentarios.
 
@@ -44,7 +44,7 @@ Esta tarea suele resultar difícil incluso para humanos, ya que la valoración e
 El punto principal de la tarea es la extracción de características clave del texto que ayuden a separar y clasificar los textos en clases. En este área encontramos 2 aproximaciones principales:
 
 \begin{itemize}
-	\item Bag of words (BOW): Es el modelo más simple, se compone un vector de características en el que cada elemento se corresponde a una palabra del dominio, y su valor será o bien el número de ocurrencias en el texto o bien un valor estadístico que refleje la relación de la palabra con su contexto, como por ejemplo el valor de tf-idf.
+	\item Bag of words (BOW): Es el modelo más simple, se compone un vector de características en el que cada elemento se corresponde a una palabra del dominio, y su valor será o bien el número de ocurrencias en el texto o bien un valor estadístico que refleje la relación de la palabra con su contexto, como por ejemplo el valor de tf-idf (Term Frequency - Inverse Document Frequency).
 	\item Word Embeddings (WE): Es un vector compuesto mediante un entrenamiento en una red neuronal que recibe como entrada un conjunto grande de textos e intenta aprender las relaciones de similitud entre las palabras que lo componen, dando como resultado para cada palabra un vector de dígitos reales de una longitud determinada. Gracias a este tipo de datos es posible buscar relaciones de similitud, o incluso operaciones de adición y sustracción entre los vectores que representan las palabras, dando como resultado otra palabra:
 	\subitem Vector(Rey) - Vector(Hombre) + Vector(Mujer)  = Vector(Reina)
 \end{itemize}

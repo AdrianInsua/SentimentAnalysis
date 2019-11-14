@@ -1,7 +1,7 @@
 
 \chapter{Resultados}
 
-\lettrine{E}{n} este capítulo analizaremos los resultados obtenidos en los modelos estudiados, realizando en todos ellos una división de los datos de entrenamiento mediante K-Folds, que nos permite comparar los modelos según precisión media.
+\lettrine{E}{n} este capítulo analizaremos los resultados obtenidos en los modelos estudiados, realizando en todos ellos una división de los datos de entrenamiento mediante k-fold, que nos permite comparar los modelos según precisión media.
 
 \section{Corpus de datos}\label{corpus}
 
@@ -26,7 +26,7 @@ Para ello ofrecen un conjunto de 6800 tweets para entrenamiento, que vienen acom
 	\label{dist_tokes_tass}
 \end{figure}
 
-En la figura \ref{dist_tass} vemos una distribución con tendencia hacia los extremos, sobre todo a las polaridades positivas, mientras que la figura \ref{dist_tokes_tass} nos muestra que la mayoría de los documentos contienen tan solo 10 o menos palabras, alcanzando un máximo de 28.
+En la figura \ref{dist_tass} se muestra la distribución de polaridades en el corpus TASS, en ella vemos una distribución con tendencia hacia los extremos, sobre todo a las polaridades positivas. Por otro lado la figura \ref{dist_tokes_tass} nos muestra un histograma del número de palabras por documento en el cual vemos que la mayoría de ellos contienen tan sólo 10 o menos palabras, alcanzando un máximo de 28.
 
 Hemos traducido un lexicón de palabras polarizadas del inglés para cruzarlos con los tweets de la colección y comprobar la distribución de las palabras en los mismos, obteniendo los siguientes resultados:
 
@@ -191,7 +191,7 @@ Como se menciona en \ref{sect:ML} para el establecimiento de la línea base se h
 	\item Número de estimadores para RF (10 o 100).
 \end{itemize}
 
-Además se han repetido el proceso utilizando como preprocesador CountVectorizer y TFIDF.
+Además se ha repetido el proceso utilizando como preprocesador CountVectorizer y TFIDF.
 
 
 
@@ -285,7 +285,7 @@ Todos los entrenamientos realizan 30 iteraciones (epochs).
 
 \subsection{Selección de parámetros}
 
-En esta sección mostraremos un ejemplo ilustrativo de como se ha iterado para la selección de parámetros de un modelo LSTM sobre el corpus TASS.
+En esta sección mostraremos un ejemplo ilustrativo de cómo se ha iterado para la selección de parámetros de un modelo LSTM sobre el corpus TASS.
 
 Este proceso se debe repetir para todas las distribuciones de clases y para todos los modelos.
 
@@ -339,7 +339,7 @@ En la figura \ref{dropout02} vemos como han desaparecido los picos de las primer
 	\label{dropout02}
 \end{figure}
 
-En el siguiente experimento (fig. \ref{glorot}) se aprecia se aprecia mayor uniformidad en la evolución si despreciamos los picos, que pueden ser debidos a una distribución poco favorable para este modelo. Sin embargo cuando aplicamos además la normalización de batch, aunque conseguimos eliminar los picos, vemos que se produce sobre entrenamiento en las primeras etapas.
+En el siguiente experimento, aplicando inicialización Glorot (fig. \ref{glorot}) se aprecia se aprecia mayor uniformidad en la evolución si despreciamos los picos, que pueden ser debidos a una distribución poco favorable para este modelo. Sin embargo cuando aplicamos además la normalización de batch \ref{glorotbn}, aunque conseguimos eliminar los picos, vemos que se produce sobre entrenamiento en las primeras etapas.
 
 
 \begin{figure}[H]
@@ -497,7 +497,7 @@ Por otro lado los modelos Glorot con normalización de batch y sin ella presenta
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{imaxes/gnbn.png}
-	\caption{Evolución modelo LSTM con normalización de batch.}
+	\caption{Evolución modelo LSTM con inicialización Glorot.}
 	\label{gn-5}
 \end{figure}
 
